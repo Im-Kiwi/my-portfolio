@@ -2,3 +2,24 @@ body {
   margin : 0;
   padding : 0;
 }
+
+.custom-shape-divider-bottom-1655291501 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1655291501 svg {
+  position: relative;
+  display: block;
+  width: calc(210% + 1.3px);
+  height: 151px;
+  transform: rotateY(180deg);
+}
+
+.custom-shape-divider-bottom-1655291501 .shape-fill {
+  fill: #FEFEE3;
+}
