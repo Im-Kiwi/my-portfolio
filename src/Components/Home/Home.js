@@ -3,7 +3,7 @@ import { Grid, Typography, Container, Box } from '@mui/material'
 import { Image } from 'react-bootstrap'
 
 // --------- importing other files ---------
-import { HomeImg } from '../../pathToAssets/pathToAssets'
+import { HomeImg, AboutMe, ContactMe, Skills, MyWork } from '../../pathToAssets/pathToAssets'
 import { styles, CustomLink } from './styles'
 
 const Home = () => {
@@ -58,11 +58,25 @@ const Home = () => {
                     justifyContent = 'center'
                     alignItems = 'center'>
                     <Box
+                        position = 'absolute'
                         display = 'flex'
                         justifyContent = 'center'
-                        gap = {3}
+                        alignItems = 'center'
+                        gap = {15}
                         sx = {{zIndex : 10}}>
                         <CustomLink to = '/projects'>
+                            <Image fluid width = {200} src = {MyWork} alt = 'my projects' />
+                        </CustomLink>
+                        <CustomLink to = 'skills'>
+                            <Image fluid width = {200} src = {Skills} alt = 'my projects' />                            
+                        </CustomLink>
+                        <CustomLink to = 'contact-me'>
+                            <Image fluid width = {200} src = {ContactMe} alt = 'my projects' />
+                        </CustomLink>
+                        <CustomLink to = 'about-me'>
+                            <Image fluid width = {200} src = {AboutMe} alt = 'my projects' />
+                        </CustomLink>
+                        {/* <CustomLink to = '/projects'>
                             My projects
                         </CustomLink>
                         <CustomLink to = 'skills'>
@@ -73,7 +87,7 @@ const Home = () => {
                         </CustomLink>
                         <CustomLink to = 'about-me'>
                             a little about me
-                        </CustomLink>
+                        </CustomLink> */}
                     </Box>
                 </Grid>
             </Grid>

@@ -5,24 +5,25 @@ import { Box } from '@mui/material'
 export const styles = makeStyles({
     firstRow : {
         position : 'relative',
-        backgroundColor : '#49a078',
+        backgroundColor : '#007200',
     },
     navBackground : {
         position : 'absolute',
         width : '100vw',
         height : '100%',
         bottom : 0,
-        backgroundColor : '#49a078',
+        backgroundColor : '#fdfffc',
+        zIndex : 10
     },
     secondRow : {
         position : 'relative',
-        backgroundColor : '#FEFEE3',
+        backgroundColor : '#7678ed',
         '&::before' : {
             content : '""',
             position : 'absolute',
             width : '100vw',
             height : '100%',
-            backgroundColor : '#FEFEE3',
+            backgroundColor : '#7678ed',
         }
     },
 })
