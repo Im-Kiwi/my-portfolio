@@ -5,33 +5,34 @@ import { Box } from '@mui/material'
 export const styles = makeStyles({
     firstRow : {
         position : 'relative',
-        backgroundColor : '#007200',
+        backgroundColor : '#edddd4',
     },
     navBackground : {
         position : 'absolute',
         width : '100vw',
         height : '100%',
         bottom : 0,
-        backgroundColor : '#fdfffc',
+        backgroundColor : '#ffffff',
         zIndex : 10
     },
     secondRow : {
         position : 'relative',
-        backgroundColor : '#7678ed',
         '&::before' : {
             content : '""',
             position : 'absolute',
             width : '100vw',
             height : '100%',
-            backgroundColor : '#7678ed',
+            backgroundColor : '#197278',
+            opacity : 0.9,
         }
     },
 })
 
 export const CustomLink = styled(Link)({
     textDecoration : 'none',
-    color : 'black',
+    color : 'white',
     fontSize : '1.5rem',
     '&:hover' : {
+        color : 'white'
     }
 })

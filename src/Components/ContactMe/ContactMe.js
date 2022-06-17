@@ -27,33 +27,39 @@ const ContactMe = () => {
                     <SideDrawer />
                 </Grid>
                 <Grid item xs = {9}>
-                    <Paper sx = {{mt:10, p:2}} elevation = {2}>
+                    <Paper sx = {{mt:10, p:2, width : 700}} elevation = {2}>
                         <form ref = {form} onSubmit = {(event) => submitMessage(event)}>
                             <Stack 
-                                spacing = {2}>
+                                spacing = {5}>
                                 <TextField
                                     size = 'small'
+                                    variant = 'standard'
                                     type = 'text'
                                     label = 'Your Name' />
                                 <TextField
                                     size = 'small'
+                                    variant = 'standard'
                                     type = 'text'
                                     label = 'Your Email address' />
                                 <TextField
-                                size = 'small'
-                                type = 'text'
-                                label = 'Subject' />
+                                    size = 'small'
+                                    variant = 'standard'
+                                    type = 'text'
+                                    label = 'Subject' />
                                 <TextField
                                     multiline
                                     minRows = {4}
                                     size = 'small'
                                     type = 'text'
-                                    label = 'Message' />
+                                    label = 'Message'
+                                    variant = 'filled' />
                                 <Button 
                                     variant = 'contained' 
                                     color = 'success'
                                     type = 'submit'
-                                    sx = {{width : 200}}>Send</Button>
+                                    sx = {{width : 200}}>
+                                    Send
+                                </Button>
                             </Stack>
                         </form>
                     </Paper>
