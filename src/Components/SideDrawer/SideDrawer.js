@@ -1,15 +1,23 @@
-import { Stack } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHouse } from '@fortawesome/free-solid-svg-icons'
+
+// -------- importing from other files ---------
+import { CustomLink } from './styles'
+import Navs from '../Navs/Navs'
 
 const SideDrawer = () => {
 
     return (
-        <Stack>
+        <Stack
+            justifyContent = 'center'
+            alignItems = 'center'
+            sx = {{height : '100%'}}>
             <Link to = '/'>Home</Link>
-            <Link to = '/projects'>My Projects</Link>
-            <Link to = '/skills'>Skills</Link>
-            <Link to = '/contact-me'>Contact me</Link>
-            <Link to = '/about-me'>a litte about me</Link>
+            <Navs 
+                imgWidth = {150}
+                aboutMeImgWidth = {200} />
         </Stack>
     )
 }

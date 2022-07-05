@@ -1,6 +1,5 @@
 import { makeStyles, styled } from '@mui/styles'
 import { Link } from 'react-router-dom'
-import { Box } from '@mui/material'
 
 export const styles = makeStyles({
     firstRow : {
