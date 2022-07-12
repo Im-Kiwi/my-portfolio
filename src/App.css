@@ -1,6 +1,9 @@
 body {
   margin : 0;
   padding : 0;
+  width : 100vw;
+  height : 100vh;
+  background-color: rgba(25,34,47,1) !important;
 }
 
 .custom-shape-divider-bottom-1655291501 {
@@ -25,3 +28,8 @@ body {
 .custom-shape-divider-bottom-1655291501 .shape-fill {
   fill: #197278;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');

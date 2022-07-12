@@ -1,5 +1,7 @@
 import { Box, Container, Grid, Stack } from "@mui/material"
 import { Routes, Route, Navigate, useLocation } from "react-router-dom"
+import { motion } from "framer-motion"
+import { Image } from "react-bootstrap"
 
 // ------- importing from other files ----------
 import Home from "../../Components/Home/Home"
@@ -8,49 +10,53 @@ import Skills from "../../Components/Skills/Skills"
 import ContactMe from "../../Components/ContactMe/ContactMe"
 import AboutMe from "../../Components/AboutMe/AboutMe"
 import Navs from "../../Components/Navs/Navs"
-import { Triangle } from "../styles"
+import { BgImg } from "../../pathToAssets/pathToAssets"
 
 const Layout = () =>    {
     return (
-        <Grid container
-            justifyContent = 'center'
-            alignItems = 'center'
-            sx = {{
-                overflow : 'hidden',
-                backgroundColor : 'white', 
-                height : '100vh'}}>
-            <Grid 
-                item xs = {3} 
+        <>
+            <Box
                 display = 'flex'
+                justifyContent = 'center'
                 alignItems = 'center'
-                justifyContent = 'flex-start'
-                sx = {{position : 'relative', height : '100vh'}}>
-                <Stack
-                    justifyContent = 'center'
-                    sx = {{
-                        zIndex : 20, 
-                        position : 'relative', 
-                        backgroundColor : '#7678ed',
-                        height : 500,
-                        p:3,
-                        borderRadius : 50,
-                        ml : 2}}>
-                    <Navs />
-                </Stack>
-            </Grid>
-            <Grid item xs = {9}>
-                <Container>
-                    <Routes>
-                        <Route path = '' element = {<Home />} />
-                        <Route path = 'my-work' element = {<MyProjects />} />
-                        <Route path = 'my-skills' element = {<Skills />} />
-                        <Route path = 'contact-me' element = {<ContactMe />} />
-                        <Route path = 'about-me' element = {<AboutMe />} />
-                        <Route path = '*' element = {<Navigate to ='/' />} />
-                    </Routes>
-                </Container>
-            </Grid>
-        </Grid>
+                sx = {{
+                    height : '100vh',
+                    width : '100vw',
+                    background : 'linear-gradient(50deg, rgba(239,50,55,1) 0%, rgba(191,47,53,1) 0%, rgba(115,41,51,1) 5%, rgba(69,37,49,1) 8%, rgba(38,35,48,1) 12%, rgba(25,34,47,1) 15%, rgba(25,34,47,1) 85%, rgba(38,35,48,1) 88%, rgba(69,37,49,1) 92%, rgba(115,41,51,1) 95%, rgba(191,47,53,1) 100%, rgba(239,50,55,1) 100%)',
+                    // backgroundColor : '#1B212C'
+                    }}>
+                    <Container sx = {{zIndex : 10, position : 'relative'}}>
+                            <Routes>
+                                <Route path = '' element = {<Home />} />
+                                <Route path = 'my-work' element = {<MyProjects />} />
+                                <Route path = 'my-skills' element = {<Skills />} />
+                                <Route path = 'contact-me' element = {<ContactMe />} />
+                                <Route path = 'about-me' element = {<AboutMe />} />
+                                <Route path = '*' element = {<Navigate to ='/' />} />
+                            </Routes>
+                    </Container>
+                    <Stack
+                        className = 'shadow'
+                        direction = 'row'
+                        justifyContent = 'center'
+                        sx = {{
+                            zIndex : 20,
+                            position : 'fixed',
+                            bottom : 0,
+                            mb:3,
+                            overflow : 'hidden',
+                            border : 'solid 2px #EF3237',
+                            boxShadow : '10px 10px 5px 12px #EF3237',
+                            width : 500,
+                            height : 55,
+                            borderRadius : 50,
+                            ml:2,
+                            p:1.5}}>
+                        <Navs />
+                    </Stack>
+            </Box>
+            
+        </>
     )
 }
 

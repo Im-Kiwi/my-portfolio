@@ -7,6 +7,7 @@ const MyProjects = () => {
 
     return (
         <Box 
+            id = 'my-work'
             display = 'flex'
             flexWrap = 'wrap'
             justifyContent = 'flex-start'

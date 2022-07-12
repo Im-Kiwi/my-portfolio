@@ -7,6 +7,7 @@ const Skills = () => {
     return (
         <Container maxWidth = 'xl'>
                 <Stack 
+                    id = 'my-skills'
                     sx = {{height : '100vh'}}
                     justifyContent = 'center'
                     spacing = {10}>

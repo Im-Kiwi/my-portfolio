@@ -22,7 +22,7 @@ const ContactMe = () => {
 
     return (
         <Container maxWidth = 'xl'>
-            <Box>
+            <Box id = 'contact-me'>
                 <Paper sx = {{mt:10, p:2, width : 700}} elevation = {2}>
                     <form ref = {form} onSubmit = {(event) => submitMessage(event)}>
                         <Stack 
