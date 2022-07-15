@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
-import { Grid, Typography, Container, Box, Stack, Divider, Button } from '@mui/material'
+import { Grid, Typography, Container, Box, Stack, Divider, Button, IconButton } from '@mui/material'
+import { Facebook, GitHub, LinkedIn } from '@mui/icons-material'
 import { Image } from 'react-bootstrap'
 
 // --------- importing other files ---------
@@ -26,10 +27,11 @@ const Home = () => {
                     gap = {2} 
                     sx = {{color : '#FFFFFF'}}>
                     <Typography 
-                        variant = 'body' 
+                        variant = 'body'
                         sx = {{
                             fontFamily : 'Oswald, sans-serif',
-                            fontSize : '1.5rem'}}>
+                            fontSize : '1.5rem',
+                            color : 'greyish.main'}}>
                         hey there, this is
                     </Typography>
                     <Stack>
@@ -38,9 +40,9 @@ const Home = () => {
                             spacing = {2} 
                             sx = {{fontFamily : 'Titan One, cursive'}}>
                             <Typography 
-                                variant = 'h3' 
+                                variant = 'h3'
                                 sx = {{
-                                    color : '#EF3237', 
+                                    color : 'orangish.main', 
                                     fontFamily : 'Titan One, cursive'}}>
                                 Rahul
                             </Typography>
@@ -65,19 +67,40 @@ const Home = () => {
                         sx = {{
                             fontSize : '1.3rem', 
                             mt:5,
+                            color : 'greyish.main',
                             fontFamily : 'Comfortaa, cursive'}}>
-                        I love to develop single page web applications with the help of many amazing and popular libraries
+                        I love to develop single page web applications with the help of amazing and popular libraries
                     </Typography>
                 </Box>
                 <Box sx = {{mt:5}}>
                     <Button 
-                        variant = 'contained' 
-                        color = 'primary'
+                        size = 'large'
+                        variant = 'outlined' 
+                        color = 'orangish'
                         sx = {{
-                            borderRadius : 0
+                            '&:hover' : {
+                                boxShadow : '0px 0px 4px 0 #EF3237'
+                            }
                         }}>
-                        Resume
+                        <strong>Resume</strong>
                     </Button>
+                </Box>
+                <Box>
+                    <a href = 'https://www.facebook.com/dumKiwi'>
+                        <IconButton>
+                            <Facebook sx = {{fontSize : '2.5rem', color : 'greyish.main'}} />
+                        </IconButton>
+                    </a>
+                    <a href = 'https://www.linkedin.com/in/rahul-rana-36057210b'>
+                        <IconButton>
+                            <LinkedIn sx = {{fontSize : '2.5rem', color : 'greyish.main'}} />
+                        </IconButton>
+                    </a>
+                    <a href = 'https://github.com/Im-Kiwi'>
+                        <IconButton>
+                            <GitHub sx = {{fontSize : '2.5rem', color : 'greyish.main'}} />
+                        </IconButton>
+                    </a>
                 </Box>
             </Grid>
             <Grid item xs = {6} sx = {{height : '100%'}}>

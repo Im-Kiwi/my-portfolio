@@ -1,5 +1,8 @@
-import { styled } from '@mui/styles'
+import { styled, makeStyles } from '@mui/styles'
 import { Link } from 'react-router-dom'
+import { customTheme } from '../../theme/createTheme'
+
+const color = customTheme.palette
 
  // styling nav links
 export const CustomLink = styled(Link)({
@@ -10,6 +13,32 @@ export const CustomLink = styled(Link)({
         color : 'white'
     }
 })
+
+export const styles = makeStyles({
+    icon : {
+        fontSize : '2.3rem !important', 
+        color : color.orangish.main,
+        '&:hover' : {
+            '& svg' : {
+                transform : 'scale(1.3) translateY(-10px)',
+                transition : '0.2s'
+            }
+        },
+        '& svg' : {
+            fontSize : '2.3rem'
+        }
+    },
+    chip : {
+        position : 'absolute',
+        bottom : -40,
+        color : color.orangish.main + '!important',
+        borderColor : color.orangish.main + '!important'
+    },
+    activeLink : {
+        transform : 'scale(1.3) translateY(-10px)',
+        transition : '0.2s'
+    }
+}) 
 
 export const animateImg = {
     hover : {

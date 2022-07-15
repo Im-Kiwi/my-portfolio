@@ -36,20 +36,15 @@ const Layout = () =>    {
                             </Routes>
                     </Container>
                     <Stack
-                        className = 'shadow'
                         direction = 'row'
                         justifyContent = 'center'
                         sx = {{
                             zIndex : 20,
                             position : 'fixed',
-                            bottom : 0,
+                            bottom : 30,
                             mb:3,
-                            overflow : 'hidden',
-                            border : 'solid 2px #EF3237',
-                            boxShadow : '10px 10px 5px 12px #EF3237',
                             width : 500,
                             height : 55,
-                            borderRadius : 50,
                             ml:2,
                             p:1.5}}>
                         <Navs />

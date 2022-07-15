@@ -1,5 +1,5 @@
-import { Box, Stack, Typography, Divider } from '@mui/material'
-import { HomeOutlined, WorkOutlineOutlined, CallOutlined, PersonOutline } from '@mui/icons-material'
+import { Box, Stack, Typography, Divider, Chip } from '@mui/material'
+import { HomeOutlined, WorkOutlineOutlined, CallOutlined, PersonOutline, EngineeringOutlined } from '@mui/icons-material'
 import { Image } from 'react-bootstrap'
 import { motion } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
@@ -7,62 +7,127 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHouseChimney, faGears, faPhone, faUserLarge, faBriefcase } from '@fortawesome/free-solid-svg-icons'
 
 // ------- importing from other files -------
-import { CustomLink, animateImg, animateText } from './styles'
+import { CustomLink, styles, animateImg, animateText } from './styles'
 import { MyWork, Skills, ContactMe, AboutMe } from '../../pathToAssets/pathToAssets'
 
 const Navs = (props) => {
+    const classes = styles()
     const { pathname } = useLocation()
+
+    const showLabelAnime = {
+        initial : {
+            scale : 0
+        },
+        whileHover : {
+            scale : 1,
+            transition : {
+                ease : 'easeOut'
+            }
+        }
+    }
+
+    const iconAnime = {
+        whileHover : {
+            transform : 'translateY(-10px) scale(1.3)'
+        }
+    }
 
     return (
         <Stack 
             spacing = {7}
             direction = 'row'
             alignItems = 'center'
-            justifyContent = 'center'>
+            justifyContent = 'center'
+            sx = {{position : 'relative', zIndex : 30}}>
             <CustomLink to = ''>
                 <Stack 
-                    direction = 'row' 
+                    className = {classes.icon}
+                    component = {motion.div}
+                    initial = 'initial'
+                    whileHover = 'whileHover'
                     alignItems = 'center'
-                    sx = {{color : '#939BBD'}}
+                    justifyContent = 'center'
                     spacing = {2}>
-                    <HomeOutlined sx = {{fontSize : '2.1rem', textShadow : '10px 10px 5px #EF3237'}} />
+                    <Chip 
+                        component = {motion.div} 
+                        variants = {showLabelAnime} 
+                        className = {classes.chip} 
+                        variant = 'outlined'
+                        label = 'Home' />
+                        <HomeOutlined />
                 </Stack>
             </CustomLink>
             <CustomLink to = 'my-work'>
                 <Stack 
-                    direction = 'row' 
+                    className = {classes.icon}
+                    component = {motion.div}
+                    initial = 'initial'
+                    whileHover = 'whileHover'
                     alignItems = 'center'
-                    spacing = {2}
-                    sx = {{color : '#939BBD'}}>
-                    <WorkOutlineOutlined sx = {{fontSize : '2.1rem'}} />
+                    justifyContent = 'center'
+                    spacing = {2}>
+                    <Chip 
+                        component = {motion.div} 
+                        variants = {showLabelAnime} 
+                        variant = 'outlined'
+                        className = {classes.chip} 
+                        label = 'My Work' />
+                        <WorkOutlineOutlined />
                 </Stack>
             </CustomLink>
             <CustomLink to = 'my-skills'>
-                <Stack 
-                    direction = 'row' 
-                    alignItems = 'center'
-                    sx = {{color : '#939BBD'}}
-                    spacing = {2}>
-                    <FontAwesomeIcon icon = {faGears} />
-                </Stack>
+            <Stack 
+                className = {classes.icon}
+                component = {motion.div}
+                initial = 'initial'
+                whileHover = 'whileHover'
+                alignItems = 'center'
+                justifyContent = 'center'
+                spacing = {2}>
+                <Chip 
+                    component = {motion.div} 
+                    variants = {showLabelAnime} 
+                    variant = 'outlined'
+                    className = {classes.chip} 
+                    label = 'My Skills' />
+                    <EngineeringOutlined />
+            </Stack>
             </CustomLink>
             <CustomLink to = 'contact-me'>
-                <Stack 
-                    direction = 'row' 
-                    alignItems = 'center'
-                    sx = {{color : '#939BBD'}}
-                    spacing = {2}>
-                    <CallOutlined sx = {{fontSize : '2.1rem'}} />
-                </Stack>
+            <Stack 
+                className = {classes.icon}
+                component = {motion.div}
+                initial = 'initial'
+                whileHover = 'whileHover'
+                alignItems = 'center'
+                justifyContent = 'center'
+                spacing = {2}>
+                <Chip 
+                    className = {classes.chip} 
+                    component = {motion.div} 
+                    variants = {showLabelAnime} 
+                    variant = 'outlined'
+                    label = 'Contact Me' />
+                    <CallOutlined />
+            </Stack>
             </CustomLink>
             <CustomLink to = 'about-me'>
-                <Stack 
-                    direction = 'row' 
-                    alignItems = 'center'
-                    sx = {{color : '#939BBD'}}
-                    spacing = {2}>
-                    <PersonOutline sx = {{fontSize : '2.1rem'}} />
-                </Stack>
+            <Stack 
+                className = {classes.icon}
+                component = {motion.div}
+                initial = 'initial'
+                whileHover = 'whileHover'
+                alignItems = 'center'
+                justifyContent = 'center'
+                spacing = {2}>
+                <Chip 
+                    className = {classes.chip} 
+                    component = {motion.div} 
+                    variants = {showLabelAnime}
+                    variant = 'outlined' 
+                    label = 'About Me' />
+                    <PersonOutline />
+            </Stack>
             </CustomLink>
         </Stack>
     )
