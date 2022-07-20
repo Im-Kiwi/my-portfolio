@@ -33,7 +33,7 @@ const Navs = () => {
         },
         final : {
             originY : 3,
-            scale : 1.3
+            scale : 1.4
         },
         exit : {
             originY : 0,

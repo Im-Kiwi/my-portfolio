@@ -18,13 +18,13 @@ const Home = () => {
             <Grid item xs = {6}
                 display = 'flex'
                 flexDirection = 'column'
-                justifyContent = 'space-evenly'
+                justifyContent = 'center'
                 gap = {2}
                 sx = {{height : '100%'}}>
                 <Box
                     display = 'flex'
                     flexDirection = 'column'
-                    gap = {2} 
+                    gap = {1} 
                     sx = {{color : '#FFFFFF'}}>
                     <Typography 
                         variant = 'body'
@@ -69,10 +69,10 @@ const Home = () => {
                             mt:5,
                             color : 'greyish.main',
                             fontFamily : 'Comfortaa, cursive'}}>
-                        I love to develop single page web applications with the help of amazing and popular libraries
+                        I love to develop single page web applications with the help of amazing libraries
                     </Typography>
                 </Box>
-                <Box sx = {{mt:5}}>
+                <Box sx = {{mt:2}}>
                     <Button 
                         size = 'large'
                         variant = 'outlined' 
@@ -103,7 +103,10 @@ const Home = () => {
                     </a>
                 </Box>
             </Grid>
-            <Grid item xs = {6} sx = {{height : '100%'}}>
+            <Grid item xs = {6} 
+                display = 'flex'
+                alignItems = 'center'
+                sx = {{height : '100%'}}>
                 <Box sx = {{p:3}}>
                     <Image src = {Person} width = {480} alt = 'a person' />
                 </Box>

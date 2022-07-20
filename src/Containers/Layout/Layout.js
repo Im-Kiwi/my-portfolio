@@ -10,21 +10,18 @@ import Skills from "../../Components/Skills/Skills"
 import ContactMe from "../../Components/ContactMe/ContactMe"
 import AboutMe from "../../Components/AboutMe/AboutMe"
 import Navs from "../../Components/Navs/Navs"
-import { BgImg } from "../../pathToAssets/pathToAssets"
 
 const Layout = () =>    {
     return (
         <>
-            <Box
-                display = 'flex'
+            <Stack
                 justifyContent = 'center'
                 alignItems = 'center'
                 sx = {{
                     height : '100vh',
                     width : '100vw',
-                    background : 'linear-gradient(50deg, rgba(239,50,55,1) 0%, rgba(191,47,53,1) 0%, rgba(115,41,51,1) 5%, rgba(69,37,49,1) 8%, rgba(38,35,48,1) 12%, rgba(25,34,47,1) 15%, rgba(25,34,47,1) 85%, rgba(38,35,48,1) 88%, rgba(69,37,49,1) 92%, rgba(115,41,51,1) 95%, rgba(191,47,53,1) 100%, rgba(239,50,55,1) 100%)',
-                    }}>
-                <Container sx = {{zIndex : 10, position : 'relative'}}>
+                    background : 'linear-gradient(50deg, rgba(239,50,55,1) 0%, rgba(191,47,53,1) 0%, rgba(115,41,51,1) 5%, rgba(69,37,49,1) 8%, rgba(38,35,48,1) 12%, rgba(25,34,47,1) 15%, rgba(25,34,47,1) 85%, rgba(38,35,48,1) 88%, rgba(69,37,49,1) 92%, rgba(115,41,51,1) 95%, rgba(191,47,53,1) 100%, rgba(239,50,55,1) 100%)'}}>
+                <Container sx = {{height : '100%', zIndex : 10, position : 'relative'}}>
                         <Routes>
                             <Route path = '' element = {<Home />} />
                             <Route path = 'my-work' element = {<MyProjects />} />
@@ -34,6 +31,7 @@ const Layout = () =>    {
                             <Route path = '*' element = {<Navigate to ='/' />} />
                         </Routes>
                 </Container>
+                <Box sx = {{width : '100%', height : 145}}></Box>
                 <Stack
                     direction = 'row'
                     justifyContent = 'center'
@@ -48,7 +46,7 @@ const Layout = () =>    {
                         p:1.5}}>
                     <Navs />
                 </Stack>
-            </Box>
+            </Stack>
             
         </>
     )

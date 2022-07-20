@@ -1,33 +1,36 @@
+import { Weather, WeatherLogo, CovidLogo, BurgerLogo } from "../pathToAssets/pathToAssets"
 
 export const projects = [
-    {
-        projectName : 'My portfolio',
-        sourceCode : '',
-        preview : '',
-        description : ''
-    },
     {
         projectName : 'Burger builder',
         sourceCode : '',
         preview : '',
-        description : ''
+        description : '',
+        image : '',
+        logo : BurgerLogo, 
     },
     {
         projectName : 'To do',
         sourceCode : '',
         preview : '',
-        description : ''
+        description : '',
+        image : '',
+        logo : false,
     },
     {
         projectName : 'Covid tracker',
         sourceCode : '',
         preview : '',
-        description : ''
+        description : '',
+        image : '',
+        logo : CovidLogo,
     },
     {
-        projectName : 'Weather app',
+        projectName : 'Weather Check',
         sourceCode : '',
         preview : '',
-        description : ''
+        description : '',
+        image : Weather,
+        logo : WeatherLogo,
     }
 ]
