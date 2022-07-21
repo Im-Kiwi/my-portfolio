@@ -1,4 +1,4 @@
-import { Weather, WeatherLogo, CovidLogo, BurgerLogo } from "../pathToAssets/pathToAssets"
+import { Weather, WeatherLogo, CovidLogo, BurgerLogo, CovidTracker, ToDo, Burger } from "../pathToAssets/pathToAssets"
 
 export const projects = [
     {
@@ -6,7 +6,7 @@ export const projects = [
         sourceCode : '',
         preview : '',
         description : '',
-        image : '',
+        image : Burger,
         logo : BurgerLogo, 
     },
     {
@@ -14,7 +14,7 @@ export const projects = [
         sourceCode : '',
         preview : '',
         description : '',
-        image : '',
+        image : ToDo,
         logo : false,
     },
     {
@@ -22,7 +22,7 @@ export const projects = [
         sourceCode : '',
         preview : '',
         description : '',
-        image : '',
+        image : CovidTracker,
         logo : CovidLogo,
     },
     {

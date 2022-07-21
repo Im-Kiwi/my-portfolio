@@ -9,6 +9,9 @@ import Weather from '../Assets/weather.svg'
 import WeatherLogo from '../Assets/logo-2.svg'
 import CovidLogo from '../Assets/covidTrackerLogo.svg'
 import BurgerLogo from '../Assets/burgerLogo.svg'
+import CovidTracker from '../Assets/covidTracker.svg'
+import ToDo from '../Assets/todo.svg'
+import Burger from '../Assets/burger.svg'
 
 export {
     HomeImg,
@@ -19,6 +22,7 @@ export {
     BgImg,
     Person,
     Weather, WeatherLogo,
-    CovidLogo,
-    BurgerLogo
+    CovidLogo, CovidTracker,
+    BurgerLogo, Burger,
+    ToDo
 }
