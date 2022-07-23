@@ -1,4 +1,4 @@
-import { Box, Stack } from '@mui/material'
+import { Box, Stack, Grid } from '@mui/material'
 import { styled } from '@mui/styles'
 import { customTheme } from '../../theme/createTheme'
 
@@ -14,6 +14,10 @@ export const Thumbnail = styled(Stack)({
         borderRadius : 10,
         backgroundColor : '#ffffff'
     }
+})
+
+export const ProjImage = styled(Grid)({
+    padding:10, 
 })
 
 export const Main = styled(Box)({
