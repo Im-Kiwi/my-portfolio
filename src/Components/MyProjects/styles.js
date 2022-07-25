@@ -82,11 +82,11 @@ export const styles = makeStyles({
         alignItems : 'center',
         justifyContent : 'center',
         position : 'relative',
-        borderLeft : `1px solid ${colors.orangish.main}`,
+        borderLeft : `2px solid ${colors.orangish.main}`,
         overflowX : 'hidden'
     },
     lastThumbnail : {
-        borderRight : `1px solid ${colors.orangish.main}`
+        borderRight : `2px solid ${colors.orangish.main}`
     }
 
 })

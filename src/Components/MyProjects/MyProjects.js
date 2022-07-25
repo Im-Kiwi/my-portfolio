@@ -140,7 +140,7 @@ const MyProjects = () => {
                                 color = 'orangish'>
                                 <Web sx = {{mr:1}} />
                                 <Typography variant = 'body'>
-                                    View
+                                    <strong>View</strong>
                                 </Typography>
                             </CustomButton>
                             <CustomButton
@@ -150,7 +150,7 @@ const MyProjects = () => {
                                 color = 'orangish'>
                                 <GitHub sx = {{mr:1}} />
                                 <Typography variant = 'body'>
-                                    Code
+                                    <strong>Code</strong>
                                 </Typography>
                             </CustomButton>
                         </Box>
@@ -213,7 +213,7 @@ const MyProjects = () => {
                                     position : 'absolute', 
                                     top : 0,
                                     width : 'inherit',
-                                    height : '1px',
+                                    height : '2px',
                                     backgroundColor : 'orangish.main'}}></Box>
                             <Box 
                                 component = {motion.div}
@@ -222,7 +222,7 @@ const MyProjects = () => {
                                     position : 'absolute',
                                     bottom : 0, 
                                     width : 'inherit',
-                                    height : '1px',
+                                    height : '2px',
                                     backgroundColor : 'orangish.main'}}></Box>
                         </Box>
                     )
