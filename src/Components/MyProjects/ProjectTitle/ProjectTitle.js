@@ -4,12 +4,12 @@ import { Image } from 'react-bootstrap'
 const ProjectTitle = (props) => {
 
     return (
-        <Stack 
+        <Stack
+            className = {props.cssClass} 
             direction = 'row'
             justifyContent = 'center'
             alignItems = 'center'
-            spacing = {props.gap}
-            sx = {props.cssProperties}>
+            spacing = {props.gap}>
             <Box>
                 <Image fluid src = {props.logo} width = {props.iconSize} alt = {props.alt} />
             </Box>
