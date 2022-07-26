@@ -10,3 +10,4 @@ export const CustomGrid = styled(Grid)({
     borderRadius : 20, 
     height : 300
 })
+

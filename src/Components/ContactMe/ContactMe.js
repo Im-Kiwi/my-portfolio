@@ -1,10 +1,11 @@
 import { useRef } from 'react'
-import { Container, Grid, TextField, Paper, Stack, Button, Box } from '@mui/material'
+import { Container, Grid, TextField, Paper, Stack, Button, Box, Typography, Divider, IconButton } from '@mui/material'
 import { Link } from 'react-router-dom'
+import { Facebook, LinkedIn, WhatsApp } from '@mui/icons-material'
 import emailjs from '@emailjs/browser'
 
 // ------ importing from other files ---------
-import SideDrawer from '../SideDrawer/SideDrawer'
+import { ContactForm, SubmitButton, ContactTitle, Email, Or } from './styles'
 
 const ContactMe = () => {
 
@@ -21,46 +22,79 @@ const ContactMe = () => {
     }
 
     return (
-        <Container maxWidth = 'xl'>
-            <Box id = 'contact-me'>
-                <Paper sx = {{mt:10, p:2, width : 700}} elevation = {2}>
+        <Stack container
+            alignItems = 'center'
+            justifyContent = 'center'
+            spacing = {1}
+            sx = {{height : '100%'}}>
+                <ContactForm>
                     <form ref = {form} onSubmit = {(event) => submitMessage(event)}>
                         <Stack 
-                            spacing = {5}>
+                            spacing = {3}>
                             <TextField
                                 size = 'small'
-                                variant = 'standard'
+                                variant = 'outlined'
                                 type = 'text'
+                                color = 'orangish'
                                 label = 'Your Name' />
                             <TextField
                                 size = 'small'
-                                variant = 'standard'
+                                variant = 'outlined'
                                 type = 'text'
+                                color = 'orangish'
                                 label = 'Your Email address' />
-                            <TextField
-                                size = 'small'
-                                variant = 'standard'
-                                type = 'text'
-                                label = 'Subject' />
                             <TextField
                                 multiline
                                 minRows = {4}
                                 size = 'small'
                                 type = 'text'
+                                color = 'orangish'
                                 label = 'Message'
-                                variant = 'filled' />
-                            <Button 
-                                variant = 'contained' 
-                                color = 'success'
-                                type = 'submit'
-                                sx = {{width : 200}}>
-                                Send
-                            </Button>
+                                variant = 'outlined' />
+                            <Box>
+                                <SubmitButton 
+                                    disableRipple
+                                    variant = 'contained' 
+                                    color = 'orangish'
+                                    type = 'submit'
+                                    size = 'large'>
+                                    <strong>Send</strong>
+                                </SubmitButton>
+                            </Box>
                         </Stack>
                     </form>
-                </Paper>
-            </Box>
-        </Container>
+                    <Or variant = 'h5'>OR</Or>
+                    <Box
+                        display = 'flex' 
+                        justifyContent = 'space-between'
+                        sx = {{mt:3, width : '100%'}}>
+                        <Stack alignItems = 'center'>
+                            <ContactTitle variant = 'body'>
+                                email me
+                            </ContactTitle>
+                            <Email variant = 'body'>
+                                rahulrana.kiwi@gmail.com
+                            </Email>
+                        </Stack>
+                        <Stack alignItems = 'center'>
+                            <ContactTitle variant = 'body'>
+                                message me
+                            </ContactTitle>
+                            <Box>
+                                <IconButton sx = {{color : 'greyish.main'}}>
+                                    <Facebook sx = {{fontSize : '2.7rem'}}/>
+                                </IconButton>
+                                <IconButton sx = {{color : 'greyish.main'}}>
+                                    <LinkedIn sx = {{fontSize : '2.7rem'}} />
+                                </IconButton>
+                                <IconButton sx = {{color : 'greyish.main'}}>
+                                    <WhatsApp sx = {{fontSize : '2.7rem'}} />
+                                </IconButton>
+                            </Box>
+                        </Stack>
+                    </Box>
+                </ContactForm>
+        </Stack>
     )
 }
 
