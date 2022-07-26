@@ -69,7 +69,8 @@ const Home = () => {
                             mt:5,
                             color : 'greyish.main',
                             fontFamily : 'Comfortaa, cursive'}}>
-                        I love to develop single page web applications with the help of amazing libraries
+                        I love to develop single page web applications with the help of amazing libraries. <br/>
+                        Very much passionate about learning and solving problems.
                     </Typography>
                 </Box>
                 <Box sx = {{mt:2}}>
