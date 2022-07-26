@@ -139,7 +139,9 @@ const MyProjects = () => {
                                 variant = 'contained' 
                                 color = 'orangish'>
                                 <Web sx = {{mr:1}} />
-                                <Typography variant = 'body'>
+                                <Typography 
+                                    variant = 'body'
+                                    sx = {{fontFamily : 'Shrikhand, cursive'}}>
                                     <strong>View</strong>
                                 </Typography>
                             </CustomButton>
@@ -149,7 +151,9 @@ const MyProjects = () => {
                                 variant = 'contained' 
                                 color = 'orangish'>
                                 <GitHub sx = {{mr:1}} />
-                                <Typography variant = 'body'>
+                                <Typography 
+                                    variant = 'body'
+                                    sx = {{fontFamily : 'Shrikhand, cursive'}}>
                                     <strong>Code</strong>
                                 </Typography>
                             </CustomButton>

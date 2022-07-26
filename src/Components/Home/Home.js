@@ -78,6 +78,7 @@ const Home = () => {
                         variant = 'outlined' 
                         color = 'orangish'
                         sx = {{
+                            fontFamily : 'Audiowide, cursive',
                             '&:hover' : {
                                 boxShadow : '0px 0px 4px 0 #EF3237'
                             }

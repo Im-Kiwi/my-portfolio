@@ -23,6 +23,7 @@ import MaterialUi from '../Assets/materialUi.svg'
 import ReactJs from '../Assets/reactjs.svg'
 import Redux from '../Assets/redux.svg'
 import ReactBootstrap from '../Assets/reactBootstrap.svg'
+import Me from '../Assets/me.jpg'
 
 export {
     HomeImg,
@@ -36,5 +37,6 @@ export {
     CovidLogo, CovidTracker,
     BurgerLogo, Burger,
     ToDo,
-    Javascript, Bootstrap, Css, Firebase, FramerMotion, Git, Html, MaterialUi, ReactJs, Redux, ReactBootstrap
+    Javascript, Bootstrap, Css, Firebase, FramerMotion, Git, Html, MaterialUi, ReactJs, Redux, ReactBootstrap,
+    Me
 }

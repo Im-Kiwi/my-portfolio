@@ -1,11 +1,10 @@
 import { useRef } from 'react'
-import { Container, Grid, TextField, Paper, Stack, Button, Box, Typography, Divider, IconButton } from '@mui/material'
-import { Link } from 'react-router-dom'
-import { Facebook, LinkedIn, WhatsApp } from '@mui/icons-material'
+import { TextField, Stack, Box } from '@mui/material'
+import { Facebook, LinkedIn } from '@mui/icons-material'
 import emailjs from '@emailjs/browser'
 
 // ------ importing from other files ---------
-import { ContactForm, SubmitButton, ContactTitle, Email, Or } from './styles'
+import { ContactForm, SubmitButton, ContactTitle, Email, Or, SocialButton } from './styles'
 
 const ContactMe = () => {
 
@@ -22,7 +21,7 @@ const ContactMe = () => {
     }
 
     return (
-        <Stack container
+        <Stack
             alignItems = 'center'
             justifyContent = 'center'
             spacing = {1}
@@ -81,15 +80,14 @@ const ContactMe = () => {
                                 message me
                             </ContactTitle>
                             <Box>
-                                <IconButton sx = {{color : 'greyish.main'}}>
+                                <SocialButton
+                                    href = 'https://www.facebook.com/dumKiwi'>
                                     <Facebook sx = {{fontSize : '2.7rem'}}/>
-                                </IconButton>
-                                <IconButton sx = {{color : 'greyish.main'}}>
+                                </SocialButton>
+                                <SocialButton
+                                    href = 'https://www.linkedin.com/in/rahul-rana-36057210b'>
                                     <LinkedIn sx = {{fontSize : '2.7rem'}} />
-                                </IconButton>
-                                <IconButton sx = {{color : 'greyish.main'}}>
-                                    <WhatsApp sx = {{fontSize : '2.7rem'}} />
-                                </IconButton>
+                                </SocialButton>
                             </Box>
                         </Stack>
                     </Box>

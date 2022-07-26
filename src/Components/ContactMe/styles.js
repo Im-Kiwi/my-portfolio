@@ -1,4 +1,4 @@
-import { Box, Button, Typography } from '@mui/material'
+import { Box, Button, IconButton, Typography } from '@mui/material'
 import { makeStyles, styled } from '@mui/styles'
 import { customTheme } from '../../theme/createTheme'
 
@@ -14,6 +14,7 @@ export const ContactForm = styled(Box)({
 
 export const SubmitButton = styled(Button)({
     borderRadius : 0,
+    fontFamily : 'Shrikhand, cursive !important',
     '&:hover' : {
         boxShadow : `0 0 6px 0 ${colors.orangish.main} !important`
     }
@@ -36,4 +37,11 @@ export const Or = styled(Typography)({
     marginTop : 20, 
     textAlign : 'center',
     color : colors.orangish.main,
+})
+
+export const SocialButton = styled(IconButton)({
+    color : `${colors.greyish.main} !important`,
+    '&:hover' : {
+        color : colors.greyish.main
+    }
 })

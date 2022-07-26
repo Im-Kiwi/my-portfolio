@@ -6,9 +6,6 @@ import { Javascript, Css, Html, Bootstrap, MaterialUi, Firebase, FramerMotion, R
 import { CustomGrid } from './styles'
 
 const Skills = () => {
-// languages        libraries                                         tools and others
-//  js, html, css   react, bootstrap, react-bootstrap, material-ui,     redux toolkit, firebase, git
-//                  framer-motion
     return (
         <Grid container
             justifyContent = 'space-between'
