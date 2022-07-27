@@ -1,5 +1,4 @@
-import { Link } from 'react-router-dom'
-import { Grid, Typography, Container, Box, Stack, Divider, Button, IconButton } from '@mui/material'
+import { Grid, Typography, Box, Stack, Divider, Button, IconButton } from '@mui/material'
 import { Facebook, GitHub, LinkedIn } from '@mui/icons-material'
 import { Image } from 'react-bootstrap'
 

@@ -4,11 +4,10 @@ import { customTheme } from '../../theme/createTheme'
 
 const colors = customTheme.palette
 
-export const Parent = styled(Stack)({
+export const CustomStack = styled(Stack)({
     height : '100%',
     width : '100%',
     position : 'relative', 
-    overflowY : 'auto'
 })
 
 export const ThumbnailContainer = styled(Box)({
@@ -21,9 +20,6 @@ export const ProjImage = styled(Grid)({
 })
 
 export const Main = styled(Box)({
-    marginTop : 20,
-    height : 400, 
-    padding : 5,
 })
 
 export const CustomButton = styled(Button)({
@@ -62,7 +58,7 @@ export const styles = makeStyles({
         color : '#EBB21D'
     },
     burgerHeader_1 : {
-        top : 7
+        top : 4
     },
     burgerHeader_2 : {
         top : 19
@@ -75,14 +71,13 @@ export const styles = makeStyles({
         color : colors.greyish.main
     }, 
     thumbnail : {
-        width : 230,
-        height : 130, 
-        padding : 10,
+        width : 170,
+        height : 100, 
+        padding : 2,
         display : 'flex',
         alignItems : 'center',
         justifyContent : 'center',
         position : 'relative',
-        borderLeft : `2px solid ${colors.orangish.main}`,
         overflowX : 'hidden'
     },
     lastThumbnail : {

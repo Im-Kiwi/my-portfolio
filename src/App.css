@@ -21,7 +21,7 @@ body {
   position: relative;
   display: block;
   width: calc(210% + 1.3px);
-  height: 151px;
+  height: 151px; 
   transform: rotateY(180deg);
 }
 
@@ -46,3 +46,4 @@ body {
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nixie+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rampart+One&display=swap');

@@ -1,4 +1,4 @@
-import { Weather, WeatherLogo, CovidLogo, BurgerLogo, CovidTracker, ToDo, Burger } from "../pathToAssets/pathToAssets"
+import { Weather, WeatherLogo, CovidLogo, BurgerLogo, CovidTracker, ToDo, BurgerBuilder } from "../pathToAssets/pathToAssets"
 import { weather, covid, toDo, burger } from "../Identifiers/identifiers"
 
 export const projects = [
@@ -8,7 +8,7 @@ export const projects = [
         preview : 'https://clarish-burgers.netlify.app/',
         technologies : ['javascript', 'reactjs', 'css', 'firebase', 'material-ui', 'react-bootstrap', 'bootstrap', 'framer motion'],
         description : 'This app will help a user to create a their favourite burger with the help of given ingredients. User can save those burgers in their cart and can order it later on. Authentication feature is also added in this app, only authenticated user can build and buy burgers.',
-        image : Burger,
+        image : BurgerBuilder,
         logo : BurgerLogo, 
     },
     {
