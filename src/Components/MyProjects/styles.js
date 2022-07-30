@@ -10,16 +10,10 @@ export const CustomStack = styled(Stack)({
     position : 'relative', 
 })
 
-export const ThumbnailContainer = styled(Box)({
-    marginTop : 50,
-    padding : 10,
-})
-
-export const ProjImage = styled(Grid)({
-    padding:10, 
-})
-
 export const Main = styled(Box)({
+    boxShadow : `0 0 5px 1px ${colors.orangish.main}`,
+    borderRadius : 10,
+    height : 500,
 })
 
 export const CustomButton = styled(Button)({
@@ -32,75 +26,37 @@ export const CustomButton = styled(Button)({
 })
 
 export const styles = makeStyles({
-    weatherLogo : {
-        border : 'solid 1px #457b9d',
-        height : 70,
-        width : 300,
-        borderRadius : 50,
-        padding : 3,
-        background: 'linear-gradient(90deg, #fdfffc 34%, #457b9d 20%)'
+    cardContainer : {
+        height : '100%', 
+        width : 'inherit', 
+        overflow : 'hidden',
+        marginTop : 10,
+        position : 'relative'
     },
-    covidLogo : {
-        height : 70,
-        width : 300,
-        padding : 3 
+    carousel : {
+        overflow : 'hidden', 
+        width : 'inherit', 
+        height : 'inherit',
+        padding : 10
     },
-    toDoHeader : {
-        color : '#f03658', 
-        fontSize: '2rem', 
-        fontWeight : 600, 
-        fontFamily: 'Skranji, cursive'
-    },
-    burgerHeader : {
-        position : 'relative',
-        fontSize : '0.75rem', 
-        fontFamily : 'Yuji Mai, serif',
-        color : '#EBB21D'
-    },
-    burgerHeader_1 : {
-        top : 4
-    },
-    burgerHeader_2 : {
-        top : 19
-    },
-    burgerLogo : {
-        width : 400
-    },
-    projName : {
-        fontFamily : 'Concert One, cursive !important',
-        color : colors.greyish.main
+    detailsContainer : {
+        position : 'absolute',
+        height : '100%',
+        bottom : 11,
+        borderRadius : '10px',
+        paddingLeft : 10,
+        paddingRight : 10,
+        borderTop : `solid 3px ${colors.orangish.main}`,
+        backgroundColor : colors.blackish.main,
+        overflow : 'hidden'
     }, 
-    thumbnail : {
-        width : 170,
-        height : 100, 
-        padding : 2,
-        display : 'flex',
-        alignItems : 'center',
-        justifyContent : 'center',
-        position : 'relative',
-        overflowX : 'hidden'
+    closeButton : {
+        position : 'absolute !important',
+        right : 5,
+        border : `solid 1px ${colors.blackish.main} !important`
     },
-    lastThumbnail : {
-        borderRight : `2px solid ${colors.orangish.main}`
+    chip : {
+        width : 110,
+        boxShadow : `0 0 4px 0 #29B6F6`,
     }
-
 })
-
-export const transition_rightToLeft = {
-    start : {
-        left : 230
-    },
-    end : {
-        left : 0
-    }
-}
-
-export const transition_leftToRight = {
-    start : {
-        right : 230
-    },
-    end : {
-        right : 0
-        
-    }
-}

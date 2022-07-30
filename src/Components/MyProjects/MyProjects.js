@@ -1,79 +1,52 @@
 import { useState } from 'react'
-import { Grid, Box, Typography, Stack, Chip } from '@mui/material'
-import { DoneAllRounded, Web, GitHub } from '@mui/icons-material'
+import { Grid, Box, Typography, Stack, Chip, Button, IconButton } from '@mui/material'
+import { Web, GitHub, ArrowLeftRounded, ArrowRightRounded, HighlightOffRounded, ArrowDropUpRounded, CancelRounded } from '@mui/icons-material'
 import { Image } from 'react-bootstrap'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
+import { v4 as uniqueId } from 'uuid'
 
 // ------- importing from other files -----------
-import { Main, ProjImage, CustomButton, ThumbnailContainer, styles, CustomStack, transition_rightToLeft, transition_leftToRight } from './styles'
+import { Main, CustomButton, styles, CustomStack } from './styles'
 import { projects } from '../../myProjects/myProjects'
-import * as identifiers from '../../Identifiers/identifiers'
-import ProjectTitle from './ProjectTitle/ProjectTitle'
 
 const MyProjects = () => {
     const classes = styles()
 
-    // this will store the selected project
-    const [currentProj, setCurrentProj] = useState(projects[0])
+    // preparing the updated projects list
+    const proj_one = {...projects[0]}
+    const proj_two = {...projects[1]}
+    const proj_three = {...projects[2]}
+    const proj_four = {...projects[3]}
+    const sampleList = [{...projects[3], id : 'proj_0'}, proj_one, proj_two, proj_three, proj_four, {...projects[0], id : 'proj_5'}]
 
-    let logo
+    const [render, setRender] = useState(false) // will update everytime user clicks on forward and backward button of slider, this is so that the component can re-render
+    const [projectList, setProjectList] = useState(sampleList) // contains the list of projects
+    const [showDetails, setShowDetails] = useState(null)
 
-    switch (currentProj.projectName) {
-        case identifiers.weather:
-            logo = (
-                <ProjectTitle
-                    title = 'WEATHER CHECK'
-                    logo = {projects[3].logo}
-                    alt = 'weather check logo'
-                    fontFamily = 'Chela One, cursive'
-                    fontSize = '1.2rem'
-                    iconSize = {55}
-                    gap = {2}
-                    cssClass = {classes.weatherLogo} />
-            )
-            break;
-        case identifiers.covid:
-            logo = (
-                <ProjectTitle
-                    title = 'vidTracker'
-                    logo = {projects[2].logo}
-                    alt = 'covid tracker logo'
-                    fontFamily = 'Black Ops One, cursive'
-                    fontSize = '1.2rem'
-                    iconSize = {55}
-                    gap = {0}
-                    cssClass = {classes.covidLogo}/>
-            )
-            break;
-        case identifiers.toDo:
-            logo = (
-                <Stack direction = 'row'>
-                    <DoneAllRounded sx = {{fontSize : '1.7rem', color : 'greyish.main'}} />
-                    <h1 className = {classes.toDoHeader}>
-                        to do
-                    </h1>
-                </Stack>
-            )
-            break;
-        case identifiers.burger:
-            logo = (
-                <>
-                    <Typography 
-                        variant = 'body' 
-                        className = {[classes.burgerHeader, classes.burgerHeader_2].join(' ')}>
-                        CLARISH
-                    </Typography>
-                    <ProjectTitle
-                        logo = {projects[0].logo}
-                        alt = 'Burger builder logo'
-                        fontSize = '1.2rem'
-                        iconSize = {65}
-                        cssClass = {classes.burgerLogo} />
-                </>
-            )
-            break;
-        default:
-            return null
+    const nextHandler = () => {
+        const tempList = [...projectList]
+        const temp = {...tempList[2], id : uniqueId()}
+        tempList.shift()
+        tempList.push(temp)
+        console.log(projectList)
+        setRender(!render)
+        setProjectList([...tempList])
+    }
+
+    const previousHandler = () => {
+        setRender(!render)
+        const tempList = [...projectList]
+        const temp = {...tempList[tempList.length-3], id : uniqueId()}
+        tempList.pop()
+        tempList.unshift(temp)
+        setProjectList([...tempList])
+    }
+
+    const moreDetailsHandler = (proj) => {
+        const project = projectList.find((p) => p.id === proj.id)
+        if (project) {
+            setShowDetails(project.id)
+        }
     }
 
     return (
@@ -81,158 +54,149 @@ const MyProjects = () => {
             direction = 'row'
             justifyContent = 'center'
             alignItems = 'center'
-            spacing = {3}>
-            <ThumbnailContainer 
+            spacing = {2}>
+            <IconButton 
+                color = 'orangish'
+                onClick = {previousHandler}>
+                <ArrowLeftRounded sx = {{fontSize : '1.5rem'}} />
+            </IconButton>
+            <Box
+                className = {classes.carousel}
                 display = 'flex'
-                flexDirection = 'column'
-                justifyContent = 'center'
+                justifyContent = 'flex-start'
                 alignItems = 'center'
-                gap = {5}>
-                {projects.map((proj, index) => {
-                    return (
-                        <Box
-                            className = {classes.thumbnail}
-                            key = {proj.projectName}
-                            component = {motion.div}
-                            initial = 'start'
-                            whileHover = 'end'
-                            animate = {currentProj.projectName === proj.projectName ? 'end' : 'initial'}
-                            whileFocus = 'end'
-                            onClick = {() => setCurrentProj(proj)}>                            
-                            <Box
-                                component = 'button'
-                                sx = {{border : 'none', background : 'none'}}>
-                                <Stack 
-                                    justifyContent = 'space-between'
-                                    alignItems = 'center'
-                                    sx = {{mt:1, width : 200, height : 70}}>
-                                    {!proj.logo ? 
-                                        <Stack direction = 'row'>
-                                            <DoneAllRounded sx = {{fontSize : '1.7rem', color : 'greyish.main'}} />
-                                            <h1 className = {classes.toDoHeader}>
-                                                to do
-                                            </h1>
-                                        </Stack>
-                                    :
-                                        <>
-                                            {proj.projectName === identifiers.burger &&
-                                                <Typography 
-                                                    variant = 'body'
-                                                    className = {[classes.burgerHeader, classes.burgerHeader_1].join(' ')}>
-                                                    CLARISH
-                                                </Typography>                                            
-                                            }
-                                            <Image fluid src = {proj.logo} width = {40} alt = {`${proj.projectName} logo`} />
-                                        </>
-                                    }
-                                    <Typography 
-                                        className = {classes.projName}
-                                        variant = 'h5'>
-                                        {proj.projectName}
-                                    </Typography>
+                gap = {2}>
+                {projectList.map((proj, index) => (
+                    <Main
+                        key = {proj.id}
+                        layout
+                        component = {motion.div}
+                        initial = {{x : -540}}
+                        transition = {{duration : 0.5}}>
+                        <Grid container
+                            className = {classes.cardContainer}>
+                            <Grid item xs = {12}
+                                display = 'flex'
+                                flexDirection = 'column'
+                                alignItems = 'center'
+                                sx = {{p:1.2}}>
+                                <Image 
+                                    rounded
+                                    src = {proj.image} 
+                                    width = {500} 
+                                    alt = {proj.projectName}/>
+                            </Grid>
+                            <Grid item xs = {12}
+                                display = 'flex'
+                                flexDirection = 'column'
+                                justifyContent = 'center'
+                                alignItems = 'center'
+                                position = 'relative'>                                                              
+                                <Stack direction = 'row' sx = {{mb:3}}>
+                                    <CustomButton
+                                        href = {proj.preview}
+                                        disableRipple 
+                                        sx = {{mr:1}} 
+                                        variant = 'contained' 
+                                        color = 'orangish'>
+                                        <Web sx = {{mr:1}} />
+                                        <Typography 
+                                            variant = 'body'
+                                            sx = {{fontFamily : 'Audiowide, cursive'}}>
+                                            <strong>View</strong>
+                                        </Typography>
+                                    </CustomButton>
+                                    <CustomButton
+                                        href = {proj.sourceCode}
+                                        disableRipple 
+                                        variant = 'contained' 
+                                        color = 'orangish'>
+                                        <GitHub sx = {{mr:1}} />
+                                        <Typography 
+                                            variant = 'body'
+                                            sx = {{fontFamily : 'Audiowide, cursive'}}>
+                                            <strong>Code</strong>
+                                        </Typography>
+                                    </CustomButton>
                                 </Stack>
-                            </Box>
-                            <Box 
-                                component = {motion.div}
-                                variants = {transition_rightToLeft}
-                                sx = {{
-                                    position : 'absolute', 
-                                    top : 0,
-                                    width : 'inherit',
-                                    height : '2px',
-                                    backgroundColor : 'orangish.main'}}></Box>
-                            <Box 
-                                component = {motion.div}
-                                variants = {transition_leftToRight}
-                                sx = {{
-                                    position : 'absolute',
-                                    bottom : 0, 
-                                    width : 'inherit',
-                                    height : '2px',
-                                    backgroundColor : 'orangish.main'}}></Box>
-                        </Box>
-                    )
-                })}
-            </ThumbnailContainer>
-            <Main>
-                <Grid container
-                    spacing = {5}
-                    sx = {{height : '100%', width : 'inherit'}}>
-                    <ProjImage item xs = {12}
-                        display = 'flex'
-                        flexDirection = 'column'
-                        alignItems = 'center'>
-                        <Image fluid src = {currentProj.image} width = {500} alt = {currentProj.projectName} />
-                        <Box sx = {{mt:3}}>
-                            <CustomButton
-                                href = {currentProj.preview}
-                                disableRipple 
-                                sx = {{mr:1}} 
-                                variant = 'contained' 
-                                color = 'orangish'>
-                                <Web sx = {{mr:1}} />
-                                <Typography 
-                                    variant = 'body'
-                                    sx = {{fontFamily : 'Shrikhand, cursive'}}>
-                                    <strong>View</strong>
-                                </Typography>
-                            </CustomButton>
-                            <CustomButton
-                                href = {currentProj.sourceCode}
-                                disableRipple 
-                                variant = 'contained' 
-                                color = 'orangish'>
-                                <GitHub sx = {{mr:1}} />
-                                <Typography 
-                                    variant = 'body'
-                                    sx = {{fontFamily : 'Shrikhand, cursive'}}>
-                                    <strong>Code</strong>
-                                </Typography>
-                            </CustomButton>
-                        </Box>
-                    </ProjImage>
-                    <Grid item xs = {12}
-                        display = 'flex'
-                        flexDirection = 'column'
-                        justifyContent = 'flex-start'
-                        gap = {1}>
-                        <Typography 
-                            variant = 'h6'
-                            sx = {{color : 'orangish.main'}}>
-                            Built by using
-                        </Typography>
-                        <Box
-                            display = 'flex'
-                            flexWrap = 'wrap'
-                            gap = {1}>
-                            {currentProj.technologies.map(tech => {
-                                return (
-                                    <Chip
-                                        key = {tech}
-                                        label = {tech}
-                                        size = 'small'
+                                <Box sx = {{mb:2}}>
+                                    <Typography 
+                                        variant = 'h6'
                                         sx = {{
-                                            width : 105,
-                                            backgroundColor : 'greyish.main'}}/>
-                                )
-                            })}
-                        </Box>
-                        <Typography 
-                            variant = 'h6'
-                            sx = {{color : 'orangish.main', mt:3}}>
-                            About this app
-                        </Typography>
-                        <Typography
-                            className = 'lead' 
-                            variant = 'body'
-                            sx = {{color : '#ffffff'}}>
-                            {currentProj.description}
-                        </Typography>
-                        
-                    </Grid>
-                </Grid>
-            </Main>
-            
+                                            color : 'orangish.main', 
+                                            textAlign : 'center',
+                                            mb:1}}>
+                                        Built by using
+                                    </Typography>
+                                    <Box
+                                        display = 'flex'
+                                        justifyContent = 'center'
+                                        flexWrap = 'wrap'
+                                        sx = {{width : 500}}
+                                        gap = {1}>
+                                        {proj.technologies.map(tech => {
+                                            return (
+                                                <Chip
+                                                    key = {tech}
+                                                    className = {classes.chip}
+                                                    label = {tech}
+                                                    size = 'small'
+                                                    variant = 'outlined'
+                                                    color = 'info'/>
+                                            )
+                                        })}
+                                    </Box>
+                                </Box>
+                                <Box sx = {{mb:2, width : 150}} >
+                                    <Button
+                                        color = 'orangish'
+                                        sx = {{borderRadius : 50, width : 'inherit'}}
+                                        onClick = {() => moreDetailsHandler(proj)}>
+                                            <strong>More Details</strong>
+                                    </Button>
+                                </Box>
+                                <AnimatePresence>
+                                {showDetails === proj.id && 
+                                    <Box
+                                        component = {motion.div} 
+                                        className = {classes.detailsContainer}
+                                        initial = {{height : 0}}
+                                        animate = {{height : '100%'}}
+                                        exit = {{height : 0}}
+                                        transition = {{
+                                            type : 'tween',
+                                            duration : 0.4}}>
+                                        <IconButton disableRipple
+                                            className = {classes.closeButton}
+                                            size = 'small'
+                                            onClick = {() => setShowDetails(false)}>
+                                            <CancelRounded sx = {{color : 'orangish.main'}} />
+                                        </IconButton>
+                                        <Box sx = {{mt:2}}>
+                                            <Typography 
+                                                variant = 'h6'
+                                                sx = {{color : 'orangish.main'}}>
+                                                About this app
+                                            </Typography>
+                                            <Typography
+                                                variant = 'body'
+                                                sx = {{color : 'greyish.main'}}>
+                                                {proj.description}
+                                            </Typography>
+                                        </Box>
+                                    </Box>  
+                                }
+                                </AnimatePresence>
+                            </Grid>
+                        </Grid>
+                    </Main>
+                ))}
+            </Box>
+            <IconButton 
+                color = 'success'
+                onClick = {nextHandler}>
+                <ArrowRightRounded />
+            </IconButton>
         </CustomStack>
     )
 }

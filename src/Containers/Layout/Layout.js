@@ -1,5 +1,6 @@
 import { Box, Container, Stack, Typography } from "@mui/material"
 import { Routes, Route, Navigate } from "react-router-dom"
+import { Copyright } from '@mui/icons-material'
 
 // ------- importing from other files ----------
 import Home from "../../Components/Home/Home"
@@ -24,7 +25,7 @@ const Layout = () =>    {
                     sx = {{
                         width : '100%', 
                         height : 65}}>
-                    <Container 
+                    <Container maxWidth = 'xl'
                         sx = {{
                             position : 'relative',
                             top : 10,
@@ -37,7 +38,7 @@ const Layout = () =>    {
                         </Typography>
                     </Container>
                 </Box>
-                <Container 
+                <Container maxWidth = 'xl'
                     sx = {{
                         height : 'calc(100% - 110px)', 
                         zIndex : 10, 
@@ -66,17 +67,20 @@ const Layout = () =>    {
                         p:1.5}}>
                     <Navs />
                 </Stack>
-                <Box 
+                <Stack
+                    direction = 'row' 
+                    alignItems = 'center'
                     position = 'fixed'
                     sx = {{
                         bottom : 0,
                         right : 20,
                         color : 'orangish.main'
                     }}>
+                    <Copyright sx = {{fontSize : '1rem'}} />
                     <Typography variant = 'subtitle2'>
                         copyright {new Date().getFullYear()}, developed by Rahul Rana
                     </Typography>
-                </Box>
+                </Stack>
             </Stack>
             
         </>

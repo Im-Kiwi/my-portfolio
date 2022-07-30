@@ -3,6 +3,7 @@ import { weather, covid, toDo, burger } from "../Identifiers/identifiers"
 
 export const projects = [
     {
+        id : 'proj_4',
         projectName : burger,
         sourceCode : 'https://github.com/Im-Kiwi/burger-builder-app',
         preview : 'https://clarish-burgers.netlify.app/',
@@ -12,6 +13,7 @@ export const projects = [
         logo : BurgerLogo, 
     },
     {
+        id : 'proj_3',
         projectName : toDo,
         sourceCode : 'https://github.com/Im-Kiwi/to-do-app',
         preview : 'https://kiwi-to-do.netlify.app/',
@@ -21,6 +23,7 @@ export const projects = [
         logo : false,
     },
     {
+        id : 'proj_2',
         projectName : covid,
         sourceCode : 'https://github.com/Im-Kiwi/covid-tracker-app',
         preview : 'https://kiwi-covid-tracker.netlify.app/',
@@ -30,6 +33,7 @@ export const projects = [
         logo : CovidLogo,
     },
     {
+        id : 'proj_1',
         projectName : weather,
         sourceCode : 'https://github.com/Im-Kiwi/weather-app',
         preview : 'https://kiwi-weather.netlify.app/',
