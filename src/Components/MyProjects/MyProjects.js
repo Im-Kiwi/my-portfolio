@@ -55,11 +55,14 @@ const MyProjects = () => {
             justifyContent = 'center'
             alignItems = 'center'
             spacing = {2}>
-            <IconButton 
-                color = 'orangish'
+            <Button 
+                className = {classes.slideButton}
+                disableRipple
+                variant = 'outlined'
+                color = 'greyish'
                 onClick = {previousHandler}>
-                <ArrowLeftRounded sx = {{fontSize : '1.5rem'}} />
-            </IconButton>
+                <ArrowLeftRounded sx = {{fontSize : '5rem'}} />
+            </Button>
             <Box
                 className = {classes.carousel}
                 display = 'flex'
@@ -79,7 +82,12 @@ const MyProjects = () => {
                                 display = 'flex'
                                 flexDirection = 'column'
                                 alignItems = 'center'
-                                sx = {{p:1.2}}>
+                                sx = {{pl:1.2, pr:1.2}}>
+                                <Typography 
+                                    variant = 'h5'
+                                    className = {classes.projectTitle}>
+                                    {proj.projectName}
+                                </Typography>
                                 <Image 
                                     rounded
                                     src = {proj.image} 
@@ -92,7 +100,7 @@ const MyProjects = () => {
                                 justifyContent = 'center'
                                 alignItems = 'center'
                                 position = 'relative'>                                                              
-                                <Stack direction = 'row' sx = {{mb:3}}>
+                                <Stack direction = 'row' sx = {{mb:1}}>
                                     <CustomButton
                                         href = {proj.preview}
                                         disableRipple 
@@ -122,10 +130,7 @@ const MyProjects = () => {
                                 <Box sx = {{mb:2}}>
                                     <Typography 
                                         variant = 'h6'
-                                        sx = {{
-                                            color : 'orangish.main', 
-                                            textAlign : 'center',
-                                            mb:1}}>
+                                        className = {classes.subTitle}>
                                         Built by using
                                     </Typography>
                                     <Box
@@ -141,16 +146,16 @@ const MyProjects = () => {
                                                     className = {classes.chip}
                                                     label = {tech}
                                                     size = 'small'
-                                                    variant = 'outlined'
-                                                    color = 'info'/>
+                                                    variant = 'outlined'/>
                                             )
                                         })}
                                     </Box>
                                 </Box>
                                 <Box sx = {{mb:2, width : 150}} >
                                     <Button
+                                        className = {classes.moreButton}
                                         color = 'orangish'
-                                        sx = {{borderRadius : 50, width : 'inherit'}}
+                                        size = 'small'
                                         onClick = {() => moreDetailsHandler(proj)}>
                                             <strong>More Details</strong>
                                     </Button>
@@ -161,7 +166,7 @@ const MyProjects = () => {
                                         component = {motion.div} 
                                         className = {classes.detailsContainer}
                                         initial = {{height : 0}}
-                                        animate = {{height : '100%'}}
+                                        animate = {{height : '95%'}}
                                         exit = {{height : 0}}
                                         transition = {{
                                             type : 'tween',
@@ -172,17 +177,25 @@ const MyProjects = () => {
                                             onClick = {() => setShowDetails(false)}>
                                             <CancelRounded sx = {{color : 'orangish.main'}} />
                                         </IconButton>
-                                        <Box sx = {{mt:2}}>
+                                        <Box sx = {{mt:1}}>
                                             <Typography 
                                                 variant = 'h6'
-                                                sx = {{color : 'orangish.main'}}>
+                                                className = {classes.about}>
                                                 About this app
                                             </Typography>
-                                            <Typography
-                                                variant = 'body'
-                                                sx = {{color : 'greyish.main'}}>
-                                                {proj.description}
-                                            </Typography>
+                                            <ul>
+                                                {proj.description.map(detail => {
+                                                    return (
+                                                        <li style = {{color : '#939BBD'}}>
+                                                            <Typography
+                                                                variant = 'body'
+                                                                sx = {{fontFamily : "'Baloo 2', cursive"}}>
+                                                                {detail}
+                                                                </Typography>
+                                                        </li>
+                                                    )
+                                                })}
+                                            </ul>                                            
                                         </Box>
                                     </Box>  
                                 }
@@ -192,11 +205,14 @@ const MyProjects = () => {
                     </Main>
                 ))}
             </Box>
-            <IconButton 
-                color = 'success'
+            <Button 
+                disableRipple
+                className = {classes.slideButton}
+                color = 'greyish'
+                variant = 'outlined'
                 onClick = {nextHandler}>
-                <ArrowRightRounded />
-            </IconButton>
+                <ArrowRightRounded sx = {{fontSize : '5rem'}} />
+            </Button>
         </CustomStack>
     )
 }

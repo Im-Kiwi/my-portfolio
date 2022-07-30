@@ -17,7 +17,9 @@ const Skills = () => {
                 flexDirection = 'column'
                 alignItems = 'center'
                 gap = {5}>
-                <Typography variant = 'h5' className = 'text-light text-center'>Languages</Typography>
+                <Typography 
+                    variant = 'h5' 
+                    className = 'text-light text-center'>Languages</Typography>
                 <Box
                     display = 'flex'
                     justifyContent = 'center'
