@@ -37,23 +37,24 @@ const AboutMe = () => {
                             fontSize : '1.15rem',
                             fontFamily : "'Nixie One', cursive"}}>
                         <li style = {{marginBottom : 15}}>
-                            I remember made a blog in college consist of movies information which i made using blogspot.com, thats where i started 
-                            showing interest in web development field
+                            I remember made a blog in college consisting of movies information which i made using blogspot.com, thats where i started 
+                            showing interest in web development.
                         </li>
                         <li style = {{marginBottom : 15}}>
-                            After graduating in Computer engineering i started learning about web development using online learning platforms like 
-                            Udacity and Udemy
+                            After graduation in Computer engineering, i started learning web development using online learning platforms like 
+                            Udacity and Udemy.
                         </li>
                         <li style = {{marginBottom : 15}}>
-                            Pandemic really changed everything, during the begining of the lockdown i went back to my home and stayed there, 
-                            from there i continued my journey of web development
+                            Pandemic really changed everything, during the begining of the lockdown i went back to my home and from there i 
+                            continued my journey of web development.
                         </li>
                         <li style = {{marginBottom : 15}}>
-                            Did a part time job in a general store, while learing programming side by side, learnt many libraries by myself during
-                            that period
+                            Did a part time job in a general shop for a year, while learning programming side by side, learnt many libraries by 
+                            myself during that period.
                         </li>
                         <li>
-                            Despite of my profession, i love to play video games, do exercise, watch tv-series and movies.    
+                            Despite of my passion in front end web development, i love to play video games, do exercise, watch tv-series and 
+                            movies.    
                         </li>
                     </ul>
                 </Grid>

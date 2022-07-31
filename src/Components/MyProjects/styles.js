@@ -29,11 +29,9 @@ export const styles = makeStyles({
     slideButton : {
         maxWidth : '60px !important',
         borderRadius : '50px !important',
-        border : `solid 2px ${colors.greyish.main} !important`,
-        height : 550,
-        '&:hover' : {
-            boxShadow : `0 0 5px 0 ${colors.greyish.main}`
-        }
+        border : `solid 2px ${colors.orangish.main} !important`,
+        boxShadow : `0 0 10px 0 ${colors.orangish.main} inset`,
+        height : 550
     },
     cardContainer : {
         height : '100%', 
@@ -71,7 +69,7 @@ export const styles = makeStyles({
     moreButton : {
         borderRadius : '50px !important', 
         width : 'inherit',
-        fontSize : '1rem !important',
+        fontSize : '0.85rem !important',
         fontFamily : "'Abril Fatface', cursive !important"
     },
     closeButton : {
@@ -81,8 +79,8 @@ export const styles = makeStyles({
     },
     chip : {
         width : 110,
-        boxShadow : `0 0 4px 0 ${colors.greyish.main}`,
-        border : `solid 1px ${colors.greyish.main}`,
+        fontSize : '0.85rem !important',
+        boxShadow : `0 0 2px 0 ${colors.greyish.main}`,
         color : colors.greyish.main,
         fontFamily : "'Signika', sans-serif !important"
     },

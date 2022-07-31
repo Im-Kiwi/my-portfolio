@@ -59,7 +59,7 @@ const MyProjects = () => {
                 className = {classes.slideButton}
                 disableRipple
                 variant = 'outlined'
-                color = 'greyish'
+                color = 'orangish'
                 onClick = {previousHandler}>
                 <ArrowLeftRounded sx = {{fontSize : '5rem'}} />
             </Button>
@@ -156,6 +156,7 @@ const MyProjects = () => {
                                         className = {classes.moreButton}
                                         color = 'orangish'
                                         size = 'small'
+                                        variant = 'outlined'
                                         onClick = {() => moreDetailsHandler(proj)}>
                                             <strong>More Details</strong>
                                     </Button>
@@ -208,7 +209,7 @@ const MyProjects = () => {
             <Button 
                 disableRipple
                 className = {classes.slideButton}
-                color = 'greyish'
+                color = 'orangish'
                 variant = 'outlined'
                 onClick = {nextHandler}>
                 <ArrowRightRounded sx = {{fontSize : '5rem'}} />
