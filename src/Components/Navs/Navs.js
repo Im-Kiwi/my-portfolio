@@ -1,20 +1,17 @@
-import { Box, Stack, Typography, Divider, Chip } from '@mui/material'
+import { Stack, Chip } from '@mui/material'
 import { HomeOutlined, WorkOutlineOutlined, CallOutlined, PersonOutline, EngineeringOutlined } from '@mui/icons-material'
-import { Image } from 'react-bootstrap'
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faHouseChimney, faGears, faPhone, faUserLarge, faBriefcase } from '@fortawesome/free-solid-svg-icons'
 
 // ------- importing from other files -------
-import { CustomLink, styles, animateImg, animateText } from './styles'
-import { MyWork, Skills, ContactMe, AboutMe } from '../../pathToAssets/pathToAssets'
+import { CustomLink, styles } from './styles'
 import { paths } from '../../Paths/paths'
 
 const Navs = () => {
     const classes = styles()
     const { pathname } = useLocation()
 
+    // for transitioning nav label
     const showLabelAnime = {
         initial : {
             scale : 0
@@ -27,6 +24,7 @@ const Navs = () => {
         }
     }
 
+    // for transitioning nav icons
     const iconAnime = {
         initial : {
             scale : 1

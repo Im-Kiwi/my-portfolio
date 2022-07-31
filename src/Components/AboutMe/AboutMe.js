@@ -29,7 +29,7 @@ const AboutMe = () => {
                             fontSize : '1.7rem',
                             color : 'orangish.main',
                             fontFamily : 'Londrina Solid, cursive'}}>
-                        Wow what a journey its been for me so far :) <br />
+                        "that feeling when you finally fix a bug, so incredible" ;) <br />
                     </Typography>
                     <ul 
                         style = {{
