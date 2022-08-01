@@ -1,6 +1,7 @@
 import { Grid, Typography, Box, Stack, Divider, Button, IconButton } from '@mui/material'
 import { Facebook, GitHub, LinkedIn } from '@mui/icons-material'
 import { Image } from 'react-bootstrap'
+import { motion } from 'framer-motion'
 
 // --------- importing other files ---------
 import { Person } from '../../pathToAssets/pathToAssets'
@@ -13,6 +14,11 @@ const Home = () => {
             justifyContent = 'center'
             alignItems = 'center'
             spacing = {5}
+            component = {motion.div}
+            initial = {{y : 500}}
+            animate = {{y : 0}}
+            exit = {{y : '-500'}}
+            transition = {{type : 'tween'}}
             sx = {{height : '100%'}}>
             <Grid item xs = {6}
                 display = 'flex'

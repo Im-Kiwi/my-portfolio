@@ -5,7 +5,6 @@ import { Image } from 'react-bootstrap'
 import { Me } from '../../pathToAssets/pathToAssets'
 
 const AboutMe = () => {
-
     return (
         <Box 
             display = 'flex'

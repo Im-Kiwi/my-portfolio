@@ -10,6 +10,10 @@ export const CustomLink = styled(Link)({
 })
 
 export const styles = makeStyles({
+    main : {
+        position : 'relative !important',
+        zIndex : 30
+    }, 
     icon : {
         color : color.orangish.main,
         background : 'none',
@@ -25,3 +29,31 @@ export const styles = makeStyles({
         borderColor : color.orangish.main + '!important'
     }
 }) 
+
+// for transitioning nav label
+export const showLabelAnime = {
+    initial : {
+        scale : 0,
+    },
+    final : {
+        scale : 1,
+        transition : {
+            ease : 'easeOut'
+        }
+    }
+}
+
+// for transitioning nav icons
+export const iconAnime = {
+    initial : {
+        scale : 1
+    },
+    final : {
+        originY : 3,
+        scale : 1.4
+    },
+    exit : {
+        originY : 0,
+        scale : 1
+    }
+}

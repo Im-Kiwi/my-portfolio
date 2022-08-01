@@ -6,27 +6,14 @@ body {
   background-color: rgba(25,34,47,1) !important;
 }
 
-.custom-shape-divider-bottom-1655291501 {
-  opacity : 0.9;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-  z-index: 20;
+::-webkit-scrollbar {
+  width : 4px;
+  border-radius: 10px;
 }
 
-.custom-shape-divider-bottom-1655291501 svg {
-  position: relative;
-  display: block;
-  width: calc(210% + 1.3px);
-  height: 151px; 
-  transform: rotateY(180deg);
-}
-
-.custom-shape-divider-bottom-1655291501 .shape-fill {
-  fill: #197278;
+::-webkit-scrollbar-thumb {
+  background-color: #939BBD;
+  border-radius: 10px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');

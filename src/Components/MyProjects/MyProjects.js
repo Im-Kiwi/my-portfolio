@@ -50,171 +50,177 @@ const MyProjects = () => {
     }
 
     return (
-        <CustomStack 
-            direction = 'row'
-            justifyContent = 'center'
-            alignItems = 'center'
-            spacing = {2}>
-            <Button 
-                className = {classes.slideButton}
-                disableRipple
-                variant = 'outlined'
-                color = 'orangish'
-                onClick = {previousHandler}>
-                <ArrowLeftRounded sx = {{fontSize : '5rem'}} />
-            </Button>
-            <Box
-                className = {classes.carousel}
-                display = 'flex'
-                justifyContent = 'flex-start'
+        <motion.div
+            initial = {{y : '100vh'}}
+            animate = {{y : 0}}
+            exit = {{y : '-100vh'}}>
+            <CustomStack 
+                direction = 'row'
+                justifyContent = 'center'
                 alignItems = 'center'
-                gap = {2}>
-                {projectList.map((proj, index) => (
-                    <Main
-                        key = {proj.id}
-                        layout
-                        component = {motion.div}
-                        initial = {{x : -540}}
-                        transition = {{duration : 0.5}}>
-                        <Grid container
-                            className = {classes.cardContainer}>
-                            <Grid item xs = {12}
-                                display = 'flex'
-                                flexDirection = 'column'
-                                alignItems = 'center'
-                                sx = {{pl:1.2, pr:1.2}}>
-                                <Typography 
-                                    variant = 'h5'
-                                    className = {classes.projectTitle}>
-                                    {proj.projectName}
-                                </Typography>
-                                <Image 
-                                    rounded
-                                    src = {proj.image} 
-                                    width = {500} 
-                                    alt = {proj.projectName}/>
-                            </Grid>
-                            <Grid item xs = {12}
-                                display = 'flex'
-                                flexDirection = 'column'
-                                justifyContent = 'center'
-                                alignItems = 'center'
-                                position = 'relative'>                                                              
-                                <Stack direction = 'row' sx = {{mb:1}}>
-                                    <CustomButton
-                                        href = {proj.preview}
-                                        disableRipple 
-                                        sx = {{mr:1}} 
-                                        variant = 'contained' 
-                                        color = 'orangish'>
-                                        <Web sx = {{mr:1}} />
-                                        <Typography 
-                                            variant = 'body'
-                                            sx = {{fontFamily : 'Audiowide, cursive'}}>
-                                            <strong>View</strong>
-                                        </Typography>
-                                    </CustomButton>
-                                    <CustomButton
-                                        href = {proj.sourceCode}
-                                        disableRipple 
-                                        variant = 'contained' 
-                                        color = 'orangish'>
-                                        <GitHub sx = {{mr:1}} />
-                                        <Typography 
-                                            variant = 'body'
-                                            sx = {{fontFamily : 'Audiowide, cursive'}}>
-                                            <strong>Code</strong>
-                                        </Typography>
-                                    </CustomButton>
-                                </Stack>
-                                <Box sx = {{mb:2}}>
+                spacing = {2}>
+                <Button 
+                    className = {classes.slideButton}
+                    disableRipple
+                    variant = 'outlined'
+                    color = 'orangish'
+                    onClick = {previousHandler}>
+                    <ArrowLeftRounded sx = {{fontSize : '5rem'}} />
+                </Button>
+                <Box
+                    className = {classes.carousel}
+                    display = 'flex'
+                    justifyContent = 'flex-start'
+                    alignItems = 'center'
+                    gap = {2}>
+                    {projectList.map((proj, index) => (
+                        <Main
+                            key = {proj.id}
+                            layout
+                            component = {motion.div}
+                            initial = {{x : -540}}
+                            transition = {{duration : 0.5}}>
+                            <Grid container
+                                className = {classes.cardContainer}>
+                                <Grid item xs = {12}
+                                    display = 'flex'
+                                    flexDirection = 'column'
+                                    alignItems = 'center'
+                                    sx = {{pl:1.2, pr:1.2}}>
                                     <Typography 
-                                        variant = 'h6'
-                                        className = {classes.subTitle}>
-                                        Built by using
+                                        variant = 'h5'
+                                        className = {classes.projectTitle}>
+                                        {proj.projectName}
                                     </Typography>
-                                    <Box
-                                        display = 'flex'
-                                        justifyContent = 'center'
-                                        flexWrap = 'wrap'
-                                        sx = {{width : 500}}
-                                        gap = {1}>
-                                        {proj.technologies.map(tech => {
-                                            return (
-                                                <Chip
-                                                    key = {tech}
-                                                    className = {classes.chip}
-                                                    label = {tech}
-                                                    size = 'small'
-                                                    variant = 'outlined'/>
-                                            )
-                                        })}
-                                    </Box>
-                                </Box>
-                                <Box sx = {{mb:2, width : 150}} >
-                                    <Button
-                                        className = {classes.moreButton}
-                                        color = 'orangish'
-                                        size = 'small'
-                                        variant = 'outlined'
-                                        onClick = {() => moreDetailsHandler(proj)}>
-                                            <strong>More Details</strong>
-                                    </Button>
-                                </Box>
-                                <AnimatePresence>
-                                {showDetails === proj.id && 
-                                    <Box
-                                        component = {motion.div} 
-                                        className = {classes.detailsContainer}
-                                        initial = {{height : 0}}
-                                        animate = {{height : '95%'}}
-                                        exit = {{height : 0}}
-                                        transition = {{
-                                            type : 'tween',
-                                            duration : 0.4}}>
-                                        <IconButton disableRipple
-                                            className = {classes.closeButton}
-                                            size = 'small'
-                                            onClick = {() => setShowDetails(false)}>
-                                            <CancelRounded sx = {{color : 'orangish.main'}} />
-                                        </IconButton>
-                                        <Box sx = {{mt:1}}>
+                                    <Image 
+                                        rounded
+                                        src = {proj.image} 
+                                        width = {500} 
+                                        alt = {proj.projectName}/>
+                                </Grid>
+                                <Grid item xs = {12}
+                                    display = 'flex'
+                                    flexDirection = 'column'
+                                    justifyContent = 'center'
+                                    alignItems = 'center'
+                                    position = 'relative'>                                                              
+                                    <Stack direction = 'row' sx = {{mb:1}}>
+                                        <CustomButton
+                                            href = {proj.preview}
+                                            disableRipple 
+                                            sx = {{mr:1}} 
+                                            variant = 'contained' 
+                                            color = 'orangish'>
+                                            <Web sx = {{mr:1}} />
                                             <Typography 
-                                                variant = 'h6'
-                                                className = {classes.about}>
-                                                About this app
+                                                variant = 'body'
+                                                sx = {{fontFamily : 'Audiowide, cursive'}}>
+                                                <strong>View</strong>
                                             </Typography>
-                                            <ul>
-                                                {proj.description.map(detail => {
-                                                    return (
-                                                        <li style = {{color : '#939BBD'}}>
-                                                            <Typography
-                                                                variant = 'body'
-                                                                sx = {{fontFamily : "'Baloo 2', cursive"}}>
-                                                                {detail}
-                                                                </Typography>
-                                                        </li>
-                                                    )
-                                                })}
-                                            </ul>                                            
+                                        </CustomButton>
+                                        <CustomButton
+                                            href = {proj.sourceCode}
+                                            disableRipple 
+                                            variant = 'contained' 
+                                            color = 'orangish'>
+                                            <GitHub sx = {{mr:1}} />
+                                            <Typography 
+                                                variant = 'body'
+                                                sx = {{fontFamily : 'Audiowide, cursive'}}>
+                                                <strong>Code</strong>
+                                            </Typography>
+                                        </CustomButton>
+                                    </Stack>
+                                    <Box sx = {{mb:2}}>
+                                        <Typography 
+                                            variant = 'h6'
+                                            className = {classes.subTitle}>
+                                            Built by using
+                                        </Typography>
+                                        <Box
+                                            display = 'flex'
+                                            justifyContent = 'center'
+                                            flexWrap = 'wrap'
+                                            sx = {{width : 500}}
+                                            gap = {1}>
+                                            {proj.technologies.map(tech => {
+                                                return (
+                                                    <Chip
+                                                        key = {tech}
+                                                        className = {classes.chip}
+                                                        label = {tech}
+                                                        size = 'small'
+                                                        variant = 'outlined'/>
+                                                )
+                                            })}
                                         </Box>
-                                    </Box>  
-                                }
-                                </AnimatePresence>
+                                    </Box>
+                                    <Box sx = {{mb:2, width : 150}} >
+                                        <Button
+                                            className = {classes.moreButton}
+                                            color = 'orangish'
+                                            size = 'small'
+                                            variant = 'outlined'
+                                            onClick = {() => moreDetailsHandler(proj)}>
+                                                <strong>More Details</strong>
+                                        </Button>
+                                    </Box>
+                                    <AnimatePresence>
+                                    {showDetails === proj.id && 
+                                        <Box
+                                            component = {motion.div} 
+                                            className = {classes.detailsContainer}
+                                            initial = {{height : 0}}
+                                            animate = {{height : '95%'}}
+                                            exit = {{height : 0}}
+                                            transition = {{
+                                                type : 'tween',
+                                                duration : 0.4}}>
+                                            <IconButton disableRipple
+                                                className = {classes.closeButton}
+                                                size = 'small'
+                                                onClick = {() => setShowDetails(false)}>
+                                                <CancelRounded sx = {{color : 'orangish.main'}} />
+                                            </IconButton>
+                                            <Box sx = {{mt:1}}>
+                                                <Typography 
+                                                    variant = 'h6'
+                                                    className = {classes.about}>
+                                                    About this app
+                                                </Typography>
+                                                <ul>
+                                                    {proj.description.map(detail => {
+                                                        return (
+                                                            <li key = {detail}
+                                                                style = {{color : '#939BBD'}}>
+                                                                <Typography
+                                                                    variant = 'body'
+                                                                    sx = {{fontFamily : "'Baloo 2', cursive"}}>
+                                                                    {detail}
+                                                                    </Typography>
+                                                            </li>
+                                                        )
+                                                    })}
+                                                </ul>                                            
+                                            </Box>
+                                        </Box>  
+                                    }
+                                    </AnimatePresence>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </Main>
-                ))}
-            </Box>
-            <Button 
-                disableRipple
-                className = {classes.slideButton}
-                color = 'orangish'
-                variant = 'outlined'
-                onClick = {nextHandler}>
-                <ArrowRightRounded sx = {{fontSize : '5rem'}} />
-            </Button>
-        </CustomStack>
+                        </Main>
+                    ))}
+                </Box>
+                <Button 
+                    disableRipple
+                    className = {classes.slideButton}
+                    color = 'orangish'
+                    variant = 'outlined'
+                    onClick = {nextHandler}>
+                    <ArrowRightRounded sx = {{fontSize : '5rem'}} />
+                </Button>
+            </CustomStack>
+        </motion.div>
     )
 }
 

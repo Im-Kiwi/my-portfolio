@@ -14,17 +14,21 @@ const ContactMe = () => {
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
+    const [isError, setIsError] = useState(false)
+    const [isEmpty, setIsEmpty] = useState(false)
 
     const form = useRef()
 
     // to control the change in input elements
     const changeHandler = (event, toChange) => {
+        setIsEmpty(false)
+        setIsError(false)
         switch(toChange) {
             case yourName:
                 setName(event.target.value)
                 break;
             case yourEmail:
-                setEmail(event.target.value)
+                setEmail(event.target.value.trim())
                 break;
             case yourMessage:
                 setMessage(event.target.value)
@@ -36,6 +40,8 @@ const ContactMe = () => {
 
     // this will send the message to my email address
     const submitMessage = (event) => {
+        setIsError(false)
+        setIsEmpty(false)
         event.preventDefault()
         if (name.length !== 0 && email.length !== 0 && message.length !== 0) {
             const data = {name, email, message}
@@ -45,8 +51,10 @@ const ContactMe = () => {
                     setMessage('')
                     setName('')
                 }, (error) => {
-                    console.log(error.text);
+                    setIsError(true)
                 });
+        } else {
+            setIsEmpty(true)
         }
     }
 
@@ -63,28 +71,34 @@ const ContactMe = () => {
                                 size = 'small'
                                 variant = 'outlined'
                                 type = 'text'
-                                color = 'orangish'
+                                color = 'greyish'
                                 label = 'Your Name'
                                 value = {name}
-                                onChange = {event => changeHandler(event, yourName)} />
+                                onChange = {event => changeHandler(event, yourName)}
+                                error = {!Boolean(name.length) && isEmpty}
+                                helperText = {!Boolean(name.length) && isEmpty && 'please mention your name'} />
                             <TextField
                                 size = 'small'
                                 variant = 'outlined'
                                 type = 'text'
-                                color = 'orangish'
+                                color = 'greyish'
                                 label = 'Your Email address'
                                 value = {email}
-                                onChange = {event => changeHandler(event, yourEmail)} />
+                                onChange = {event => changeHandler(event, yourEmail)}
+                                error = {isEmpty}
+                                helperText = {isEmpty && 'please mention your email address'} />
                             <TextField
                                 multiline
                                 minRows = {4}
                                 size = 'small'
                                 type = 'text'
-                                color = 'orangish'
+                                color = 'greyish'
                                 label = 'Message'
                                 variant = 'outlined'
                                 value = {message}
-                                onChange = {event => changeHandler(event, yourMessage)} />
+                                onChange = {event => changeHandler(event, yourMessage)}
+                                error = {isEmpty}
+                                helperText = {isEmpty && 'please mention your message'} />
                             <Box>
                                 <SubmitButton 
                                     disableRipple

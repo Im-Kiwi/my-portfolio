@@ -1,6 +1,8 @@
 import { Box, Container, Stack, Typography } from "@mui/material"
 import { Routes, Route, Navigate } from "react-router-dom"
 import { Copyright } from '@mui/icons-material'
+import { AnimatePresence } from "framer-motion"
+import { useLocation } from 'react-router-dom'
 
 // ------- importing from other files ----------
 import Home from "../../Components/Home/Home"
@@ -11,6 +13,8 @@ import AboutMe from "../../Components/AboutMe/AboutMe"
 import Navs from "../../Components/Navs/Navs"
 
 const Layout = () =>    {
+    const { pathname } = useLocation()
+
     return (
         <>
             <Stack
@@ -43,14 +47,16 @@ const Layout = () =>    {
                         height : 'calc(100% - 110px)', 
                         zIndex : 10, 
                         overflowY : 'auto'}}>
-                        <Routes>
-                            <Route path = '' element = {<Home />} />
-                            <Route path = 'my-work' element = {<MyProjects />} />
-                            <Route path = 'my-skills' element = {<Skills />} />
-                            <Route path = 'contact-me' element = {<ContactMe />} />
-                            <Route path = 'about-me' element = {<AboutMe />} />
-                            <Route path = '*' element = {<Navigate to ='/' />} />
-                        </Routes>
+                        <AnimatePresence>
+                            <Routes key = {pathname}>
+                                <Route path = '' element = {<Home />} />
+                                <Route path = 'my-work' element = {<MyProjects />} />
+                                <Route path = 'my-skills' element = {<Skills />} />
+                                <Route path = 'contact-me' element = {<ContactMe />} />
+                                <Route path = 'about-me' element = {<AboutMe />} />
+                                <Route path = '*' element = {<Navigate to ='/' />} />
+                            </Routes>
+                        </AnimatePresence>
                 </Container>
                 <Box sx = {{width : '100%', height : 145}}></Box>
                 <Stack
@@ -61,7 +67,7 @@ const Layout = () =>    {
                         position : 'fixed',
                         bottom : 25,
                         mb:3,
-                        width : 500,
+                        width : 550,
                         height : 55,
                         ml:2,
                         p:1.5}}>

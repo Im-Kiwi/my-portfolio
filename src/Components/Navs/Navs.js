@@ -4,48 +4,20 @@ import { motion } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
 
 // ------- importing from other files -------
-import { CustomLink, styles } from './styles'
+import { CustomLink, styles, showLabelAnime, iconAnime } from './styles'
 import { paths } from '../../Paths/paths'
 
 const Navs = () => {
     const classes = styles()
     const { pathname } = useLocation()
 
-    // for transitioning nav label
-    const showLabelAnime = {
-        initial : {
-            scale : 0
-        },
-        final : {
-            scale : 1,
-            transition : {
-                ease : 'easeOut'
-            }
-        }
-    }
-
-    // for transitioning nav icons
-    const iconAnime = {
-        initial : {
-            scale : 1
-        },
-        final : {
-            originY : 3,
-            scale : 1.4
-        },
-        exit : {
-            originY : 0,
-            scale : 1
-        }
-    }
-
     return (
         <Stack 
+            className = {classes.main}
             spacing = {8}
             direction = 'row'
             alignItems = 'center'
-            justifyContent = 'center'
-            sx = {{position : 'relative', zIndex : 30}}>
+            justifyContent = 'center'>
             <CustomLink to = ''>
                 <Stack 
                     className = {classes.icon}  
