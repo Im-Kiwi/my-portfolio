@@ -19,22 +19,20 @@ const MyProjects = () => {
     const proj_four = {...projects[3]}
     const sampleList = [{...projects[3], id : 'proj_0'}, proj_one, proj_two, proj_three, proj_four, {...projects[0], id : 'proj_5'}]
 
-    const [render, setRender] = useState(false) // will update everytime user clicks on forward and backward button of slider, this is so that the component can re-render
     const [projectList, setProjectList] = useState(sampleList) // contains the list of projects
-    const [showDetails, setShowDetails] = useState(null)
+    const [showDetails, setShowDetails] = useState(null) // this will help to open the more detail box of the respective project
 
+    // this method will control next slide
     const nextHandler = () => {
         const tempList = [...projectList]
         const temp = {...tempList[2], id : uniqueId()}
         tempList.shift()
         tempList.push(temp)
-        console.log(projectList)
-        setRender(!render)
         setProjectList([...tempList])
     }
 
+    // method to control previous slide
     const previousHandler = () => {
-        setRender(!render)
         const tempList = [...projectList]
         const temp = {...tempList[tempList.length-3], id : uniqueId()}
         tempList.pop()
@@ -42,6 +40,7 @@ const MyProjects = () => {
         setProjectList([...tempList])
     }
 
+    // this method will help to open the more detail box of the respective project
     const moreDetailsHandler = (proj) => {
         const project = projectList.find((p) => p.id === proj.id)
         if (project) {
@@ -50,10 +49,17 @@ const MyProjects = () => {
     }
 
     return (
-        <motion.div
-            initial = {{y : '100vh'}}
-            animate = {{y : 0}}
-            exit = {{y : '-100vh'}}>
+        <Box
+            display = 'flex'
+            justifyContent = 'center'
+            alignItems = 'center'
+            sx = {{height : '100%'}}
+            // below props are for transitioning the entire component
+            component = {motion.div}
+            initial = {{y : 500, opacity : 0}}
+            animate = {{y : 0, opacity : 1}}
+            exit = {{y : -500, opacity : 0}}
+            transition = {{type : 'tween'}}>
             <CustomStack 
                 direction = 'row'
                 justifyContent = 'center'
@@ -76,6 +82,7 @@ const MyProjects = () => {
                     {projectList.map((proj, index) => (
                         <Main
                             key = {proj.id}
+                            // below props are for transition effect
                             layout
                             component = {motion.div}
                             initial = {{x : -540}}
@@ -168,8 +175,9 @@ const MyProjects = () => {
                                     <AnimatePresence>
                                     {showDetails === proj.id && 
                                         <Box
-                                            component = {motion.div} 
                                             className = {classes.detailsContainer}
+                                            // below props are for transition effect
+                                            component = {motion.div} 
                                             initial = {{height : 0}}
                                             animate = {{height : '95%'}}
                                             exit = {{height : 0}}
@@ -203,7 +211,7 @@ const MyProjects = () => {
                                                     })}
                                                 </ul>                                            
                                             </Box>
-                                        </Box>  
+                                        </Box>
                                     }
                                     </AnimatePresence>
                                 </Grid>
@@ -220,7 +228,7 @@ const MyProjects = () => {
                     <ArrowRightRounded sx = {{fontSize : '5rem'}} />
                 </Button>
             </CustomStack>
-        </motion.div>
+        </Box>
     )
 }
 

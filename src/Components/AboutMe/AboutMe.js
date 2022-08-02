@@ -1,5 +1,6 @@
 import { Grid, Typography, Box } from '@mui/material'
 import { Image } from 'react-bootstrap'
+import { motion } from 'framer-motion'
 
 // -------- importing from other files ---------
 import { Me } from '../../pathToAssets/pathToAssets'
@@ -9,7 +10,12 @@ const AboutMe = () => {
         <Box 
             display = 'flex'
             alignItems = 'center'
-            sx = {{height : '100%'}}>
+            sx = {{height : '100%'}}
+            component = {motion.div}
+            initial = {{y : 500, opacity : 0}}
+            animate = {{y : 0, opacity : 1}}
+            exit = {{y : -500, opacity : 0}}
+            transition = {{type : 'tween'}}>
             <Grid container
                 alignItems = 'center'
                 justifyContent = 'center'
@@ -48,8 +54,8 @@ const AboutMe = () => {
                             continued my journey of web development.
                         </li>
                         <li style = {{marginBottom : 15}}>
-                            Did a part time job in a general shop for a year, while learning programming side by side, learnt many libraries by 
-                            myself during that period.
+                            With a part time job in general shop i kept on learning many libraries which can help me to put more professionalism
+                            in developing apps.
                         </li>
                         <li>
                             Despite of my passion in front end web development, i love to play video games, do exercise, watch tv-series and 

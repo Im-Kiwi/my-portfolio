@@ -1,12 +1,18 @@
-import { Grid, Typography, Box, Stack, Divider, Button, IconButton } from '@mui/material'
+import { Grid, Typography, Box, Stack, Divider, Button, IconButton, useMediaQuery } from '@mui/material'
 import { Facebook, GitHub, LinkedIn } from '@mui/icons-material'
 import { Image } from 'react-bootstrap'
 import { motion } from 'framer-motion'
 
 // --------- importing other files ---------
 import { Person } from '../../pathToAssets/pathToAssets'
+import { styles, pageTransition } from './styles'
 
 const Home = () => {
+    const classes = styles()
+
+    // creating css breakpoints
+    const break_980 = useMediaQuery('(max-width : 980px)')
+    const break_400 = useMediaQuery('(max-width : 400px)')
 
     return (
         <Grid container 
@@ -14,29 +20,28 @@ const Home = () => {
             justifyContent = 'center'
             alignItems = 'center'
             spacing = {5}
+            // below props for page transition effect
             component = {motion.div}
-            initial = {{y : 500}}
-            animate = {{y : 0}}
-            exit = {{y : '-500'}}
-            transition = {{type : 'tween'}}
+            variants = {pageTransition}
+            initial = 'start'
+            animate = 'end'
+            exit = 'exit'
+            transition = 'transition'
             sx = {{height : '100%'}}>
-            <Grid item xs = {6}
+            <Grid item xs = {break_980 ? 12 : 6}
+                className = {classes.introduction}
                 display = 'flex'
                 flexDirection = 'column'
                 justifyContent = 'center'
-                gap = {2}
-                sx = {{height : '100%'}}>
+                gap = {2}>
                 <Box
                     display = 'flex'
                     flexDirection = 'column'
                     gap = {1} 
                     sx = {{color : '#FFFFFF'}}>
                     <Typography 
-                        variant = 'body'
-                        sx = {{
-                            fontFamily : 'Oswald, sans-serif',
-                            fontSize : '1.5rem',
-                            color : 'greyish.main'}}>
+                        variant = 'body1'
+                        className = {classes.initialText}>
                         hey there, this is
                     </Typography>
                     <Stack>
@@ -45,81 +50,67 @@ const Home = () => {
                             spacing = {2} 
                             sx = {{fontFamily : 'Titan One, cursive'}}>
                             <Typography 
-                                variant = 'h3'
-                                sx = {{
-                                    color : 'orangish.main', 
-                                    fontFamily : 'Titan One, cursive'}}>
+                                variant = {break_400 ? 'h4' : 'h3'}
+                                className = {classes.firstName}>
                                 Rahul
                             </Typography>
                             <Typography 
-                                variant = 'h3' 
+                                variant = {break_400 ? 'h4' : 'h3'}
                                 sx = {{fontFamily : 'Titan One, cursive'}}>
                                 Rana
                             </Typography>
                         </Stack>
                         <Typography 
                             variant = 'body' 
-                            sx = {{
-                                ml:12,
-                                fontSize : '1.5rem',
-                                fontFamily : 'Yanone Kaffeesatz, sans-serif'}}>
+                            className = {classes.professionText}>
                             - a front end web developer
                         </Typography>
                     </Stack>
                     <Divider />
                     <Typography 
-                        variant = 'body' 
-                        sx = {{
-                            fontSize : '1.3rem', 
-                            mt:5,
-                            color : 'greyish.main',
-                            fontFamily : 'Comfortaa, cursive'}}>
+                        variant = 'body'
+                        className = {classes.summary}>
                         I love to develop single page web applications with the help of amazing libraries. <br/>
                         Very much passionate about learning and solving problems.
                     </Typography>
                 </Box>
                 <Box sx = {{mt:2}}>
                     <Button 
-                        size = 'large'
+                        className = {classes.resumeBtn}
+                        size = {break_400 ? 'small' : 'large'}
                         variant = 'outlined' 
-                        color = 'orangish'
-                        sx = {{
-                            fontFamily : 'Audiowide, cursive',
-                            '&:hover' : {
-                                boxShadow : '0px 0px 4px 0 #EF3237'
-                            }
-                        }}>
+                        color = 'orangish'>
                         <strong>Resume</strong>
                     </Button>
                 </Box>
                 <Box>
                     <a href = 'https://www.facebook.com/dumKiwi'>
                         <IconButton>
-                            <Facebook sx = {{fontSize : '2.5rem', color : 'greyish.main'}} />
+                            <Facebook className = {classes.socialIcons} />
                         </IconButton>
                     </a>
                     <a href = 'https://www.linkedin.com/in/rahul-rana-36057210b'>
                         <IconButton>
-                            <LinkedIn sx = {{fontSize : '2.5rem', color : 'greyish.main'}} />
+                            <LinkedIn className = {classes.socialIcons} />
                         </IconButton>
                     </a>
                     <a href = 'https://github.com/Im-Kiwi'>
                         <IconButton>
-                            <GitHub sx = {{fontSize : '2.5rem', color : 'greyish.main'}} />
+                            <GitHub className = {classes.socialIcons} />
                         </IconButton>
                     </a>
                 </Box>
             </Grid>
-            <Grid item xs = {6} 
+            <Grid item xs = {break_980 ? 12 : 6} 
                 display = 'flex'
                 alignItems = 'center'
+                justifyContent = 'center'
                 sx = {{height : '100%'}}>
                 <Box sx = {{p:3}}>
-                    <Image src = {Person} width = {480} alt = 'a person' />
+                    <Image fluid src = {Person} width = {480} alt = 'a person' />
                 </Box>
             </Grid>
         </Grid>
-            
     )
 }
 

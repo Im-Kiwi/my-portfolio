@@ -13,7 +13,7 @@ import AboutMe from "../../Components/AboutMe/AboutMe"
 import Navs from "../../Components/Navs/Navs"
 
 const Layout = () =>    {
-    const { pathname } = useLocation()
+    const location = useLocation()
 
     return (
         <>
@@ -46,9 +46,10 @@ const Layout = () =>    {
                     sx = {{
                         height : 'calc(100% - 110px)', 
                         zIndex : 10, 
-                        overflowY : 'auto'}}>
-                        <AnimatePresence>
-                            <Routes key = {pathname}>
+                        overflowY : 'scroll',
+                        overflowX : 'hidden'}}>
+                        <AnimatePresence exitBeforeEnter>
+                            <Routes location = {location} key = {location.pathname}>
                                 <Route path = '' element = {<Home />} />
                                 <Route path = 'my-work' element = {<MyProjects />} />
                                 <Route path = 'my-skills' element = {<Skills />} />

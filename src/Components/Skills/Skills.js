@@ -1,5 +1,6 @@
 import { Container, Grid, Typography, Stack, Box } from '@mui/material'
 import { Image } from 'react-bootstrap'
+import { motion } from 'framer-motion'
 
 // ------- importing from other files -------
 import { Javascript, Css, Html, Bootstrap, MaterialUi, Firebase, FramerMotion, ReactJs, Redux, Git, ReactBootstrap  } from '../../pathToAssets/pathToAssets'
@@ -13,7 +14,12 @@ const Skills = () => {
             className = {classes.main}
             justifyContent = 'space-between'
             alignItems = 'center'
-            gap = {1}>
+            gap = {1}
+            component = {motion.div}
+            initial = {{y : 500, opacity : 0}}
+            animate = {{y : 0, opacity : 1}}
+            exit = {{y : -500, opacity : 0}}
+            transition = {{type : 'tween'}}>
             <CustomGrid item xs = {3} 
                 display = 'flex'
                 flexDirection = 'column'
