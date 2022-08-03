@@ -44,7 +44,7 @@ const Layout = () =>    {
                 </Box>
                 <Container maxWidth = 'xl'
                     sx = {{
-                        height : 'calc(100% - 110px)', 
+                        height : 'calc(100% - 193px)', 
                         zIndex : 10, 
                         overflowY : 'scroll',
                         overflowX : 'hidden'}}>
@@ -59,10 +59,11 @@ const Layout = () =>    {
                             </Routes>
                         </AnimatePresence>
                 </Container>
-                <Box sx = {{width : '100%', height : 145}}></Box>
+                <Box sx = {{width : '100%', height : 128}}></Box>
                 <Stack
                     direction = 'row'
                     justifyContent = 'center'
+                    alignItems = 'center'
                     sx = {{
                         zIndex : 20,
                         position : 'fixed',

@@ -77,7 +77,13 @@ const MyProjects = () => {
             {break_742 ?
                 <Box 
                     display = 'flex'
-                    justifyContent = 'center'>
+                    justifyContent = 'center'
+                    // below props are for transitioning the entire component
+                    component = {motion.div}
+                    initial = {{y : 500, opacity : 0}}
+                    animate = {{y : 0, opacity : 1}}
+                    exit = {{y : -500, opacity : 0}}
+                    transition = {{type : 'tween'}}>
                     <Stack
                         className = {classes.noCarousel}
                         direction = 'column'

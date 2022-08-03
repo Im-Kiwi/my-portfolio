@@ -1,4 +1,4 @@
-import { Container, Grid, Typography, Stack, Box } from '@mui/material'
+import { Container, Grid, Typography, Stack, Box, useMediaQuery } from '@mui/material'
 import { Image } from 'react-bootstrap'
 import { motion } from 'framer-motion'
 
@@ -9,18 +9,21 @@ import { CustomGrid, styles } from './styles'
 const Skills = () => {
     const classes = styles()
 
+    // creating CSS breakpoints
+    const break_981 = useMediaQuery('(max-width : 981px)')
+
     return (
         <Grid container
             className = {classes.main}
-            justifyContent = 'space-between'
-            alignItems = 'center'
-            gap = {1}
+            justifyContent = 'center'
+            alignItems = {break_981 ? 'flex-start' : 'center'}
+            gap = {3}
             component = {motion.div}
             initial = {{y : 500, opacity : 0}}
             animate = {{y : 0, opacity : 1}}
             exit = {{y : -500, opacity : 0}}
             transition = {{type : 'tween'}}>
-            <CustomGrid item xs = {3} 
+            <CustomGrid item xs = {break_981 ? 12 : 3} 
                 display = 'flex'
                 flexDirection = 'column'
                 alignItems = 'center'
@@ -59,7 +62,7 @@ const Skills = () => {
                     </Stack>
                 </Box>
             </CustomGrid>
-            <CustomGrid item xs = {4}
+            <CustomGrid item xs = {break_981 ? 12 : 4}
                 display = 'flex'
                 flexDirection = 'column'
                 alignItems = 'center'
@@ -115,7 +118,7 @@ const Skills = () => {
                     </Stack>
                 </Box>
             </CustomGrid>
-            <CustomGrid item xs = {4} 
+            <CustomGrid item xs = {break_981 ? 12 : 3} 
                 display = 'flex'
                 flexDirection = 'column'
                 alignItems = 'center'
@@ -127,7 +130,7 @@ const Skills = () => {
                 </Typography>
                 <Box
                     display = 'flex'
-                    justifyContent = 'space-between'
+                    justifyContent = 'center'
                     flexWrap = 'wrap'
                     gap = {3}>
                     <Stack alignItems = 'center'>
@@ -156,6 +159,9 @@ const Skills = () => {
                     </Stack>
                 </Box>
             </CustomGrid>
+            {break_981 &&
+                <div style = {{height:5, width : 1}}></div>
+            }
         </Grid>
     )
 }

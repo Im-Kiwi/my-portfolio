@@ -24,7 +24,7 @@ export const styles = makeStyles({
     },
     chip : {
         position : 'absolute',
-        bottom : -40,
+        bottom : -27,
         color : color.orangish.main + '!important',
         borderColor : color.orangish.main + '!important'
     }

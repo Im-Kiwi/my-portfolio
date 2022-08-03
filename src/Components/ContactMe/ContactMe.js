@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react'
-import { TextField, Stack, Box } from '@mui/material'
+import { TextField, Stack, Box, useMediaQuery, Alert } from '@mui/material'
 import { Facebook, LinkedIn } from '@mui/icons-material'
 import emailjs from '@emailjs/browser'
 import * as yup from 'yup'
@@ -11,6 +11,9 @@ import { ContactForm, SubmitButton, ContactTitle, Email, Or, SocialButton } from
 import { yourEmail, yourName, yourMessage } from '../../Identifiers/identifiers'
 
 const ContactMe = () => {
+
+    // creating css breakpoints
+    const break_930 = useMediaQuery('(max-width : 930px)')
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -115,6 +118,13 @@ const ContactMe = () => {
                                 size = 'large'>
                                 <strong>Send</strong>
                             </SubmitButton>
+                            {isError &&
+                                <Alert 
+                                    severity='error'
+                                    sx = {{mt:1}}>
+                                    Unable to send message. Please try again later
+                                </Alert>
+                            }
                         </Box>
                     </Stack>
                 </form>
