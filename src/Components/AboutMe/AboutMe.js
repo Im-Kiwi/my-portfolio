@@ -1,46 +1,44 @@
-import { Grid, Typography, Box } from '@mui/material'
+import { Grid, Typography, Box, useMediaQuery } from '@mui/material'
 import { Image } from 'react-bootstrap'
 import { motion } from 'framer-motion'
 
 // -------- importing from other files ---------
 import { Me } from '../../pathToAssets/pathToAssets'
+import { styles } from './styles'
 
 const AboutMe = () => {
+    const classes = styles()
+    
+    // creating css breakpoints
+    const break_1121_790 = useMediaQuery('(max-width : 1121px) and {max-height : 790px)')
+    const break_1026 = useMediaQuery('(max-width : 1026px)')
+    
     return (
         <Box 
+            className = {classes.container}
             display = 'flex'
-            alignItems = 'center'
-            sx = {{height : '100%'}}
+            alignItems = {break_1121_790 ? 'flex-start' : 'center'}
+            justifyContent = 'center'
+            sx = {{}}
+            // below props to add transition effect
             component = {motion.div}
             initial = {{y : 500, opacity : 0}}
             animate = {{y : 0, opacity : 1}}
             exit = {{y : -500, opacity : 0}}
             transition = {{type : 'tween'}}>
             <Grid container
+                className = {classes.main}
                 alignItems = 'center'
                 justifyContent = 'center'
-                sx = {{
-                    p:2,
-                    borderRadius : 10,
-                    boxShadow : '0 0 5px 1px #EF3237'}}
                 spacing = {1}>
-                <Grid item xs = {7}
+                <Grid item xs = {break_1026 ? 12 : 7}
                     sx = {{p:1}}>
                     <Typography 
-                        variant = 'h5' 
-                        sx = {{
-                            textAlign : 'center',
-                            mb:3,
-                            fontSize : '1.7rem',
-                            color : 'orangish.main',
-                            fontFamily : 'Londrina Solid, cursive'}}>
+                        variant = 'h5'
+                        className = {classes.quote}>
                         "that feeling when you finally fix a bug, so incredible" ;) <br />
                     </Typography>
-                    <ul 
-                        style = {{
-                            color : '#939BBD',
-                            fontSize : '1.15rem',
-                            fontFamily : "'Nixie One', cursive"}}>
+                    <ul className = {classes.list}>
                         <li style = {{marginBottom : 15}}>
                             I remember made a blog in college consisting of movies information which i made using blogspot.com, thats where i started 
                             showing interest in web development.
@@ -63,7 +61,7 @@ const AboutMe = () => {
                         </li>
                     </ul>
                 </Grid>
-                <Grid item xs = {5}
+                <Grid item xs = {break_1026 ? 12 : 5}
                     display = 'flex'
                     justifyContent = 'center'>
                     <Image 
