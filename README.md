@@ -6,6 +6,7 @@
 
 - With the help of languages like javascript, css and library called reactjs
 - Many other libraires have been used in development like react bootstrap, material-ui, framer motion.
+- Used svg images and icons from free sites [freepik](https://www.freepik.com/) and [icon8](https://icons8.com/)
 
 ## How TO RUN THIS APP
 

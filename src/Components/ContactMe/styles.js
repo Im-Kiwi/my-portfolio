@@ -1,5 +1,5 @@
 import { Box, Button, IconButton, Typography } from '@mui/material'
-import { makeStyles, styled } from '@mui/styles'
+import { styled } from '@mui/styles'
 import { customTheme } from '../../theme/createTheme'
 
 // fetching colors from custom theme
@@ -49,11 +49,5 @@ export const SocialButton = styled(IconButton)({
     color : `${colors.greyish.main} !important`,
     '&:hover' : {
         color : colors.greyish.main
-    }
-})
-
-export const styles = makeStyles({
-    container : {
-        height : '100%'
     }
 })

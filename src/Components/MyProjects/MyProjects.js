@@ -25,7 +25,6 @@ const MyProjects = () => {
 
     const [projectList, setProjectList] = useState(sampleList) // contains the list of projects
     const [showDetails, setShowDetails] = useState(null) // this will help to open the more detail box of the respective project
-    const [currentSlide, setCurrentSlide] = useState(0)
 
     // this method will control next slide
     const nextHandler = () => {

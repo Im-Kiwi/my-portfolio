@@ -2,16 +2,13 @@ import { useRef, useState } from 'react'
 import { TextField, Stack, Box, useMediaQuery, Alert } from '@mui/material'
 import { Facebook, LinkedIn } from '@mui/icons-material'
 import emailjs from '@emailjs/browser'
-import * as yup from 'yup'
-import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
 
 // ------ importing from other files ---------
-import { ContactForm, SubmitButton, ContactTitle, Email, Or, SocialButton, styles } from './styles'
+import { ContactForm, SubmitButton, ContactTitle, Email, Or, SocialButton } from './styles'
 import { yourEmail, yourName, yourMessage } from '../../Identifiers/identifiers'
 
 const ContactMe = () => {
-    const classes = styles()
 
     // creating css breakpoints
     const break_930 = useMediaQuery('(max-width : 930px)')

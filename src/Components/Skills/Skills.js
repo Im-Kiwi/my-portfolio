@@ -1,4 +1,4 @@
-import { Container, Grid, Typography, Stack, Box, useMediaQuery } from '@mui/material'
+import { Grid, Typography, Stack, Box, useMediaQuery } from '@mui/material'
 import { Image } from 'react-bootstrap'
 import { motion } from 'framer-motion'
 
