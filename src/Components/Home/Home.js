@@ -101,15 +101,17 @@ const Home = () => {
                     </a>
                 </Box>
             </Grid>
-            <Grid item xs = {break_980 ? 12 : 6} 
-                display = 'flex'
-                alignItems = 'center'
-                justifyContent = 'center'
-                sx = {{height : '100%'}}>
-                <Box sx = {{p:3}}>
-                    <Image fluid src = {Person} width = {480} alt = 'a person' />
-                </Box>
-            </Grid>
+            {!break_980 &&
+                <Grid item xs = {break_980 ? 12 : 6} 
+                    display = 'flex'
+                    alignItems = 'center'
+                    justifyContent = 'center'
+                    sx = {{height : '100%'}}>
+                    <Box sx = {{p:3}}>
+                        <Image fluid src = {Person} width = {480} alt = 'a person' />
+                    </Box>
+                </Grid>
+            }
         </Grid>
     )
 }

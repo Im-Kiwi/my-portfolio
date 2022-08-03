@@ -1,16 +1,20 @@
 import { useState } from 'react'
-import { Grid, Box, Typography, Stack, Chip, Button, IconButton } from '@mui/material'
-import { Web, GitHub, ArrowLeftRounded, ArrowRightRounded, HighlightOffRounded, ArrowDropUpRounded, CancelRounded } from '@mui/icons-material'
-import { Image } from 'react-bootstrap'
-import { AnimatePresence, motion } from 'framer-motion'
+import { Box, Button, useMediaQuery, Stack } from '@mui/material'
+import { ArrowLeftRounded, ArrowRightRounded } from '@mui/icons-material'
 import { v4 as uniqueId } from 'uuid'
+import { motion } from 'framer-motion'
 
 // ------- importing from other files -----------
-import { Main, CustomButton, styles, CustomStack } from './styles'
+import { styles, CustomStack } from './styles'
 import { projects } from '../../myProjects/myProjects'
+import Project from './Project/Project'
+import { burger, toDo, covid, weather } from '../../Identifiers/identifiers'
 
 const MyProjects = () => {
     const classes = styles()
+
+    // creating css breakpoints
+    const break_742 = useMediaQuery('(max-width : 725px)')
 
     // preparing the updated projects list
     const proj_one = {...projects[0]}
@@ -21,6 +25,7 @@ const MyProjects = () => {
 
     const [projectList, setProjectList] = useState(sampleList) // contains the list of projects
     const [showDetails, setShowDetails] = useState(null) // this will help to open the more detail box of the respective project
+    const [currentSlide, setCurrentSlide] = useState(0)
 
     // this method will control next slide
     const nextHandler = () => {
@@ -48,187 +53,133 @@ const MyProjects = () => {
         }
     }
 
+    // animating active indicator of carousel
+    let pos = 0
+    switch(projectList[1].projectName) {
+        case burger:
+            pos = 0
+            break;
+        case toDo:
+            pos = (8*5.27)
+            break;
+        case covid:
+            pos = (16*5.27)
+            break;
+        case weather:
+            pos = (24*5.27)
+            break;
+        default:
+            pos = 0
+    }
+
     return (
-        <Box
-            display = 'flex'
-            justifyContent = 'center'
-            alignItems = 'center'
-            sx = {{height : '100%'}}
-            // below props are for transitioning the entire component
-            component = {motion.div}
-            initial = {{y : 500, opacity : 0}}
-            animate = {{y : 0, opacity : 1}}
-            exit = {{y : -500, opacity : 0}}
-            transition = {{type : 'tween'}}>
-            <CustomStack 
-                direction = 'row'
-                justifyContent = 'center'
-                alignItems = 'center'
-                spacing = {2}>
-                <Button 
-                    className = {classes.slideButton}
-                    disableRipple
-                    variant = 'outlined'
-                    color = 'orangish'
-                    onClick = {previousHandler}>
-                    <ArrowLeftRounded sx = {{fontSize : '5rem'}} />
-                </Button>
-                <Box
-                    className = {classes.carousel}
+        <>
+            {break_742 ?
+                <Box 
                     display = 'flex'
-                    justifyContent = 'flex-start'
-                    alignItems = 'center'
-                    gap = {2}>
-                    {projectList.map((proj, index) => (
-                        <Main
-                            key = {proj.id}
-                            // below props are for transition effect
-                            layout
-                            component = {motion.div}
-                            initial = {{x : -540}}
-                            transition = {{duration : 0.5}}>
-                            <Grid container
-                                className = {classes.cardContainer}>
-                                <Grid item xs = {12}
-                                    display = 'flex'
-                                    flexDirection = 'column'
-                                    alignItems = 'center'
-                                    sx = {{pl:1.2, pr:1.2}}>
-                                    <Typography 
-                                        variant = 'h5'
-                                        className = {classes.projectTitle}>
-                                        {proj.projectName}
-                                    </Typography>
-                                    <Image 
-                                        rounded
-                                        src = {proj.image} 
-                                        width = {500} 
-                                        alt = {proj.projectName}/>
-                                </Grid>
-                                <Grid item xs = {12}
-                                    display = 'flex'
-                                    flexDirection = 'column'
-                                    justifyContent = 'center'
-                                    alignItems = 'center'
-                                    position = 'relative'>                                                              
-                                    <Stack direction = 'row' sx = {{mb:1}}>
-                                        <CustomButton
-                                            href = {proj.preview}
-                                            disableRipple 
-                                            sx = {{mr:1}} 
-                                            variant = 'contained' 
-                                            color = 'orangish'>
-                                            <Web sx = {{mr:1}} />
-                                            <Typography 
-                                                variant = 'body'
-                                                sx = {{fontFamily : 'Audiowide, cursive'}}>
-                                                <strong>View</strong>
-                                            </Typography>
-                                        </CustomButton>
-                                        <CustomButton
-                                            href = {proj.sourceCode}
-                                            disableRipple 
-                                            variant = 'contained' 
-                                            color = 'orangish'>
-                                            <GitHub sx = {{mr:1}} />
-                                            <Typography 
-                                                variant = 'body'
-                                                sx = {{fontFamily : 'Audiowide, cursive'}}>
-                                                <strong>Code</strong>
-                                            </Typography>
-                                        </CustomButton>
-                                    </Stack>
-                                    <Box sx = {{mb:2}}>
-                                        <Typography 
-                                            variant = 'h6'
-                                            className = {classes.subTitle}>
-                                            Built by using
-                                        </Typography>
-                                        <Box
-                                            display = 'flex'
-                                            justifyContent = 'center'
-                                            flexWrap = 'wrap'
-                                            sx = {{width : 500}}
-                                            gap = {1}>
-                                            {proj.technologies.map(tech => {
-                                                return (
-                                                    <Chip
-                                                        key = {tech}
-                                                        className = {classes.chip}
-                                                        label = {tech}
-                                                        size = 'small'
-                                                        variant = 'outlined'/>
-                                                )
-                                            })}
-                                        </Box>
-                                    </Box>
-                                    <Box sx = {{mb:2, width : 150}} >
-                                        <Button
-                                            className = {classes.moreButton}
-                                            color = 'orangish'
-                                            size = 'small'
-                                            variant = 'outlined'
-                                            onClick = {() => moreDetailsHandler(proj)}>
-                                                <strong>More Details</strong>
-                                        </Button>
-                                    </Box>
-                                    <AnimatePresence>
-                                    {showDetails === proj.id && 
-                                        <Box
-                                            className = {classes.detailsContainer}
-                                            // below props are for transition effect
-                                            component = {motion.div} 
-                                            initial = {{height : 0}}
-                                            animate = {{height : '95%'}}
-                                            exit = {{height : 0}}
-                                            transition = {{
-                                                type : 'tween',
-                                                duration : 0.4}}>
-                                            <IconButton disableRipple
-                                                className = {classes.closeButton}
-                                                size = 'small'
-                                                onClick = {() => setShowDetails(false)}>
-                                                <CancelRounded sx = {{color : 'orangish.main'}} />
-                                            </IconButton>
-                                            <Box sx = {{mt:1}}>
-                                                <Typography 
-                                                    variant = 'h6'
-                                                    className = {classes.about}>
-                                                    About this app
-                                                </Typography>
-                                                <ul>
-                                                    {proj.description.map(detail => {
-                                                        return (
-                                                            <li key = {detail}
-                                                                style = {{color : '#939BBD'}}>
-                                                                <Typography
-                                                                    variant = 'body'
-                                                                    sx = {{fontFamily : "'Baloo 2', cursive"}}>
-                                                                    {detail}
-                                                                    </Typography>
-                                                            </li>
-                                                        )
-                                                    })}
-                                                </ul>                                            
-                                            </Box>
-                                        </Box>
-                                    }
-                                    </AnimatePresence>
-                                </Grid>
-                            </Grid>
-                        </Main>
-                    ))}
+                    justifyContent = 'center'>
+                    <Stack
+                        className = {classes.noCarousel}
+                        direction = 'column'
+                        justifyContent = 'flex-start'
+                        alignItems = 'center'
+                        spacing = {2}
+                        sx = {{mb:3}}>
+                        {/* list of project cards */}
+                        {projects.map((proj, index) => (
+                            <Box key = {proj.id}>
+                                <Project
+                                    proj = {proj}
+                                    moreDetailsHandler = {moreDetailsHandler}
+                                    showDetails = {showDetails}
+                                    setShowDetails = {setShowDetails} />
+                            </Box>
+                        ))}
+                    </Stack>
                 </Box>
-                <Button 
-                    disableRipple
-                    className = {classes.slideButton}
-                    color = 'orangish'
-                    variant = 'outlined'
-                    onClick = {nextHandler}>
-                    <ArrowRightRounded sx = {{fontSize : '5rem'}} />
-                </Button>
-            </CustomStack>
-        </Box>
+            :
+                <Box
+                    display = 'flex'
+                    flexDirection = 'column'
+                    justifyContent = {break_742 ? 'flex-start' : 'center'}
+                    alignItems = 'center'
+                    sx = {{height : '100%'}}
+                    // below props are for transitioning the entire component
+                    component = {motion.div}
+                    initial = {{y : 500, opacity : 0}}
+                    animate = {{y : 0, opacity : 1}}
+                    exit = {{y : -500, opacity : 0}}
+                    transition = {{type : 'tween'}}>
+                    <CustomStack 
+                        direction = {break_742 ? 'column' : 'row'}
+                        justifyContent = 'center'
+                        alignItems = 'center'
+                        spacing = {2}>
+                        {/* previous control button for carousel */}
+                        <Button 
+                            className = {classes.slideButton}
+                            disableRipple
+                            variant = 'outlined'
+                            color = 'orangish'
+                            onClick = {previousHandler}>
+                            <ArrowLeftRounded sx = {{fontSize : '5rem'}} />
+                        </Button>
+                        {/* below is the main carousel */}
+                        <Stack
+                            className = {classes.carousel}
+                            direction = 'row'
+                            justifyContent = 'flex-start'
+                            alignItems = 'center'
+                            spacing = {2}>
+                            {/* list of project cards */}
+                            {projectList.map((proj, index) => (
+                                <Box key = {proj.id}>
+                                    <Project
+                                        proj = {proj}
+                                        moreDetailsHandler = {moreDetailsHandler}
+                                        showDetails = {showDetails}
+                                        setShowDetails = {setShowDetails} />
+                                </Box>
+                            ))}
+                        </Stack>
+                        {/* carousel forward button */}
+                        <Button 
+                            disableRipple
+                            className = {classes.slideButton}
+                            color = 'orangish'
+                            variant = 'outlined'
+                            onClick = {nextHandler}>
+                            <ArrowRightRounded sx = {{fontSize : '5rem'}} />
+                        </Button>
+                    </CustomStack>
+                    <Box
+                        display = 'flex'
+                        gap = {4}
+                        sx = {{mt:1}}>
+                        {/* below is the carousel indicators  */}
+                        <Box 
+                            position = 'absolute'
+                            className = {classes.selectedDot}
+                            // below props adds transition effect on these indicators
+                            component = {motion.div}
+                            initial = {{x:0}}
+                            animate = {{x:`${pos}px`}}
+                            transition = {{type : 'tween'}}></Box>
+                        {projectList.filter((proj, index) => {
+                            if (index !== 0 && index !== 4) {
+                                return proj
+                            } else return null
+                        }).map(proj => {
+                            return (
+                                <Box 
+                                    key = {proj.id}
+                                    className = {classes.dot}></Box>                                
+                            )
+                        })}
+                    </Box>
+                </Box>
+            }   
+        </>
     )
 }
 

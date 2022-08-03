@@ -70,7 +70,7 @@ export const pageTransition = {
     },
     exit : {
         y : -500,
-        opacity : 1
+        opacity : 0
     },
     transition : {
         type : 'tween'
