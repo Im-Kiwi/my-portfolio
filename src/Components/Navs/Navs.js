@@ -8,8 +8,8 @@ import { CustomLink, styles, showLabelAnime, iconAnime } from './styles'
 import { paths } from '../../Paths/paths'
 
 const Navs = () => {
-    const classes = styles()
-    const { pathname } = useLocation()
+    const classes = styles() // classes with css properties
+    const { pathname } = useLocation() // pathname carries the information about the path u are currently at
 
     // creating css breakpoints
     const break_525 = useMediaQuery('(max-width : 555px)')
@@ -21,7 +21,8 @@ const Navs = () => {
             spacing = {break_525 ? break_430 ? 2 : 4 : 8}
             direction = 'row'
             alignItems = 'center'
-            justifyContent = 'center'>
+            justifyContent = 'flex-start'>
+            {/* Home link  */}
             <CustomLink to = ''>
                 <Stack 
                     className = {classes.icon}  
@@ -46,6 +47,7 @@ const Navs = () => {
                         variants = {iconAnime} />
                 </Stack>
             </CustomLink>
+            {/* My work nav */}
             <CustomLink to = 'my-work'>
                 <Stack 
                     className = {classes.icon}
@@ -70,6 +72,7 @@ const Navs = () => {
                             variants = {iconAnime} />
                 </Stack>
             </CustomLink>
+            {/* My skills nav */}
             <CustomLink to = 'my-skills'>
                 <Stack 
                     className = {classes.icon}
@@ -94,6 +97,7 @@ const Navs = () => {
                             variants = {iconAnime} />
                 </Stack>
             </CustomLink>
+            {/* Contact me nav */}
             <CustomLink to = 'contact-me'>
             <Stack 
                 className = {classes.icon}
@@ -118,6 +122,7 @@ const Navs = () => {
                         variants = {iconAnime} />
             </Stack>
             </CustomLink>
+            {/* about me nav */}
             <CustomLink to = 'about-me'>
             <Stack 
                 className = {classes.icon}

@@ -1,13 +1,4 @@
-import HomeImg from '../Assets/home.svg'
-import MyWork from '../Assets/my-work.svg'
-import ContactMe from '../Assets/contact-me.svg'
-import Skills from '../Assets/skills.svg'
-import AboutMe from '../Assets/about-me.svg'
 import Person from '../Assets/person.svg'
-import WeatherLogo from '../Assets/logo-2.svg'
-import CovidLogo from '../Assets/covidTrackerLogo.svg'
-import BurgerLogo from '../Assets/burgerLogo.svg'
-import Burger from '../Assets/burger.svg'
 import Javascript from '../Assets/javascript.svg'
 import Bootstrap from '../Assets/bootstrap.svg'
 import Css from '../Assets/css.svg'
@@ -26,13 +17,7 @@ import ToDo from '../Assets/todo.png'
 import Weather from '../Assets/weather.png'
 
 export {
-    HomeImg,
-    MyWork,
-    ContactMe,
-    Skills,
-    AboutMe,
     Person,
-    WeatherLogo, CovidLogo, BurgerLogo, Burger,
     Javascript, Bootstrap, Css, Firebase, FramerMotion, Git, Html, MaterialUi, ReactJs, Redux, ReactBootstrap,
     Me,
     BurgerBuilder, CovidTracker, ToDo, Weather

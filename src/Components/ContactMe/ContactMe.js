@@ -16,6 +16,7 @@ const ContactMe = () => {
     // creating css breakpoints
     const break_930 = useMediaQuery('(max-width : 930px)')
     const break_830 = useMediaQuery('(max-height : 830px)')
+    const break_550 = useMediaQuery('(max-width : 550px)')
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -78,6 +79,7 @@ const ContactMe = () => {
                 animate = {{y : 0, opacity : 1}}
                 exit = {{y : -500, opacity : 0}}
                 transition = {{type : 'tween'}}>
+                {/* contact form */}
                 <ContactForm>
                     <form ref = {form} onSubmit = {(event) => submitMessage(event)}>
                         <Stack spacing = {3}>
@@ -119,7 +121,7 @@ const ContactMe = () => {
                                     variant = 'contained' 
                                     color = 'orangish'
                                     type = 'submit'
-                                    size = 'large'>
+                                    size = {break_550 ? 'small' : 'large'}>
                                     <strong>Send</strong>
                                 </SubmitButton>
                                 {isError &&
@@ -133,6 +135,7 @@ const ContactMe = () => {
                         </Stack>
                     </form>
                     <Or variant = 'h5'>OR</Or>
+                    {/* email address  and other social info */}
                     <Box
                         display = 'flex' 
                         flexDirection =  {break_930 ? 'column' : 'row'}
@@ -154,11 +157,11 @@ const ContactMe = () => {
                             <Box>
                                 <SocialButton
                                     href = 'https://www.facebook.com/dumKiwi'>
-                                    <Facebook sx = {{fontSize : '2.7rem'}}/>
+                                    <Facebook sx = {{fontSize : break_550 ? '2.1rem' : '2.7rem'}}/>
                                 </SocialButton>
                                 <SocialButton
                                     href = 'https://www.linkedin.com/in/rahul-rana-36057210b'>
-                                    <LinkedIn sx = {{fontSize : '2.7rem'}} />
+                                    <LinkedIn sx = {{fontSize : break_550 ? '2.1rem' : '2.7rem'}} />
                                 </SocialButton>
                             </Box>
                         </Stack>

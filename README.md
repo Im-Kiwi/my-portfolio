@@ -1,3 +1,19 @@
+## INTRODUCTION
+
+- This is my portfolio which will tell you about my profession, my work, skills and more.
+
+## HOW I BUILT THIS APP
+
+- With the help of languages like javascript, css and library called reactjs
+- Many other libraires have been used in development like react bootstrap, material-ui, framer motion.
+
+## How TO RUN THIS APP
+
+- If you want to run this project in your system then you need to download by clicking on the green "code" button or create a clone using `git clone` command from your terminal.
+- Once you cloned or downloaded successfully, extract the zip file (if u chose the download option) and then go to the terminal reach to your project directory and type `npm install`, this will install all the resources or helping libraries which will help to run this project.
+- If your cloned the project then type `npm install` directly.
+- After that type `npm start` in your terminal to run this project.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

@@ -13,7 +13,7 @@ import AboutMe from "../../Components/AboutMe/AboutMe"
 import Navs from "../../Components/Navs/Navs"
 
 const Layout = () =>    {
-    const location = useLocation()
+    const location = useLocation() //consists the navigation information about the page 
 
     return (
         <>
@@ -25,6 +25,7 @@ const Layout = () =>    {
                     width : '100vw',
                     position : 'relative',
                     background : 'linear-gradient(50deg, rgba(239,50,55,1) 0%, rgba(191,47,53,1) 0%, rgba(115,41,51,1) 5%, rgba(69,37,49,1) 8%, rgba(38,35,48,1) 12%, rgba(25,34,47,1) 15%, rgba(25,34,47,1) 85%, rgba(38,35,48,1) 88%, rgba(69,37,49,1) 92%, rgba(115,41,51,1) 95%, rgba(191,47,53,1) 100%, rgba(239,50,55,1) 100%)'}}>
+                {/* app logo */}
                 <Box 
                     sx = {{
                         width : '100%', 
@@ -49,6 +50,7 @@ const Layout = () =>    {
                         overflowY : 'scroll',
                         overflowX : 'hidden'}}>
                         <AnimatePresence exitBeforeEnter>
+                            {/* react router used to route the main pages */}
                             <Routes location = {location} key = {location.pathname}>
                                 <Route path = '' element = {<Home />} />
                                 <Route path = 'my-work' element = {<MyProjects />} />
@@ -59,7 +61,9 @@ const Layout = () =>    {
                             </Routes>
                         </AnimatePresence>
                 </Container>
-                <Box sx = {{width : '100%', height : 128}}></Box>
+                {/* navigation container */}
+                <Box sx = {{width : '100%', height : 128}}></Box> 
+                {/* navigation panel */}
                 <Stack
                     direction = 'row'
                     justifyContent = 'center'
@@ -75,17 +79,23 @@ const Layout = () =>    {
                         p:1.5}}>
                     <Navs />
                 </Stack>
+                {/* footer  */}
                 <Stack
                     direction = 'row' 
                     alignItems = 'center'
+                    justifyContent = 'flex-end'
                     position = 'fixed'
                     sx = {{
                         bottom : 0,
                         right : 20,
-                        color : 'orangish.main'
+                        width : '100%',
+                        color : 'greyish.main',
+                        opacity : 0.7
                     }}>
                     <Copyright sx = {{fontSize : '1rem'}} />
-                    <Typography variant = 'subtitle2'>
+                    <Typography 
+                        variant = 'subtitle2'
+                        sx = {{fontSize : '0.75rem'}} >
                         copyright {new Date().getFullYear()}, developed by Rahul Rana
                     </Typography>
                 </Stack>

@@ -12,13 +12,13 @@ const Home = () => {
 
     // creating css breakpoints
     const break_980 = useMediaQuery('(max-width : 980px)')
-    const break_400 = useMediaQuery('(max-width : 400px)')
+    const break_400 = useMediaQuery('(max-width : 415px)')
 
     return (
         <Grid container 
             direction = 'row'
             justifyContent = 'center'
-            alignItems = 'center'
+            alignItems = {break_400 ? 'flex-start' : 'center'}
             spacing = {5}
             // below props for page transition effect
             component = {motion.div}
@@ -33,7 +33,7 @@ const Home = () => {
                 className = {classes.introduction}
                 display = 'flex'
                 flexDirection = 'column'
-                justifyContent = 'center'
+                justifyContent = {break_400 ? 'flex-start' : 'center'}
                 gap = {2}>
                 <Box
                     display = 'flex'

@@ -2,6 +2,7 @@ import { styled, makeStyles } from '@mui/styles'
 import { Link } from 'react-router-dom'
 import { customTheme } from '../../theme/createTheme'
 
+// fetching colors from the custom theme
 const color = customTheme.palette
 
  // styling nav links

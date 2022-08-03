@@ -2,8 +2,10 @@ import { Box, Button, IconButton, Typography } from '@mui/material'
 import { makeStyles, styled } from '@mui/styles'
 import { customTheme } from '../../theme/createTheme'
 
+// fetching colors from custom theme
 const colors = customTheme.palette
 
+// css properties of elements
 export const ContactForm = styled(Box)({
     marginTop : 10,
     marginBottom : 10,

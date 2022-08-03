@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material/styles"
 
+// creating custom theme, saving color palette which will mostly used in this app
 export const customTheme = createTheme({
     palette : {
         mode : 'dark',

@@ -1,6 +1,7 @@
-import { Weather, WeatherLogo, CovidLogo, BurgerLogo, CovidTracker, ToDo, BurgerBuilder } from "../pathToAssets/pathToAssets"
+import { Weather, CovidTracker, ToDo, BurgerBuilder } from "../pathToAssets/pathToAssets"
 import { weather, covid, toDo, burger } from "../Identifiers/identifiers"
 
+// information about the best projects i build
 export const projects = [
     {
         id : 'proj_4',
@@ -16,7 +17,6 @@ export const projects = [
             'Order can be placed and the status will change depending upon the time.'
         ],
         image : BurgerBuilder,
-        logo : BurgerLogo, 
     },
     {
         id : 'proj_3',
@@ -31,7 +31,6 @@ export const projects = [
             'History category is also added, which will be helpful for the user to see what tasks he/she didnt finish which can be forward to the current day schedule.'
         ],
         image : ToDo,
-        logo : false,
     },
     {
         id : 'proj_2',
@@ -45,7 +44,6 @@ export const projects = [
             'Also graphically showed which country and continent is worse affected by the covid.' 
         ],
         image : CovidTracker,
-        logo : CovidLogo,
     },
     {
         id : 'proj_1',
@@ -59,6 +57,5 @@ export const projects = [
             'Weather report contains 3 categories including today weather, weather hourly wise and weather of next couple days.'
         ],
         image : Weather,
-        logo : WeatherLogo,
     }
 ]
