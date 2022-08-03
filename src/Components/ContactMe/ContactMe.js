@@ -7,10 +7,11 @@ import { useForm } from 'react-hook-form'
 import { motion } from 'framer-motion'
 
 // ------ importing from other files ---------
-import { ContactForm, SubmitButton, ContactTitle, Email, Or, SocialButton } from './styles'
+import { ContactForm, SubmitButton, ContactTitle, Email, Or, SocialButton, styles } from './styles'
 import { yourEmail, yourName, yourMessage } from '../../Identifiers/identifiers'
 
 const ContactMe = () => {
+    const classes = styles()
 
     // creating css breakpoints
     const break_930 = useMediaQuery('(max-width : 930px)')
@@ -65,12 +66,12 @@ const ContactMe = () => {
 
     return (
         <Box display = 'flex'
-            flexDirection = 'column'>
+            flexDirection = 'column'
+            sx = {{height : '100%'}}>
             <Stack
                 alignItems = 'center'
                 justifyContent = {break_830 ? 'flex-start' : 'center'}
                 spacing = {1}
-                sx = {{height : '100%'}}
                 // below for transition effect
                 component = {motion.div}
                 initial = {{y : 500, opacity : 0}}

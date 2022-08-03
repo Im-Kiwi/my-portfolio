@@ -1,8 +1,10 @@
 import { makeStyles } from "@mui/styles"
 import { customTheme } from "../../theme/createTheme"
 
+// accessing the color palette from customTheme
 const colors = customTheme.palette
 
+// added css properties
 export const styles = makeStyles({
     introduction : {
         height : '100%'

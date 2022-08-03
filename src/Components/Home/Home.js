@@ -8,7 +8,7 @@ import { Person } from '../../pathToAssets/pathToAssets'
 import { styles, pageTransition } from './styles'
 
 const Home = () => {
-    const classes = styles()
+    const classes = styles() // to access the css defined class names
 
     // creating css breakpoints
     const break_980 = useMediaQuery('(max-width : 980px)')
@@ -28,7 +28,8 @@ const Home = () => {
             exit = 'exit'
             transition = 'transition'
             sx = {{height : '100%'}}>
-            <Grid item xs = {break_980 ? 12 : 6}
+            {/* introduction part, where i introduced myself */}
+            <Grid item xs = {break_980 ? 12 : 6}  
                 className = {classes.introduction}
                 display = 'flex'
                 flexDirection = 'column'
@@ -100,6 +101,7 @@ const Home = () => {
                         </IconButton>
                     </a>
                 </Box>
+            {/* the image of a guy with laptop */}
             </Grid>
             {!break_980 &&
                 <Grid item xs = {break_980 ? 12 : 6} 

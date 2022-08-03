@@ -2,8 +2,10 @@ import { Stack } from '@mui/material'
 import { styled, makeStyles } from '@mui/styles'
 import { customTheme } from '../../theme/createTheme'
 
+// accessing the colors from customTheme
 const colors = customTheme.palette
 
+// css properties added for various elements
 export const CustomStack = styled(Stack)({
     width : '100%',
     position : 'relative', 

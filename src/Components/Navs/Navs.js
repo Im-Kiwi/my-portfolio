@@ -1,4 +1,4 @@
-import { Stack, Chip } from '@mui/material'
+import { Stack, Chip, useMediaQuery } from '@mui/material'
 import { HomeOutlined, WorkOutlineOutlined, CallOutlined, PersonOutline, EngineeringOutlined } from '@mui/icons-material'
 import { motion } from 'framer-motion'
 import { useLocation } from 'react-router-dom'
@@ -11,10 +11,14 @@ const Navs = () => {
     const classes = styles()
     const { pathname } = useLocation()
 
+    // creating css breakpoints
+    const break_525 = useMediaQuery('(max-width : 555px)')
+    const break_430 = useMediaQuery('(max-width : 430px)')
+
     return (
         <Stack 
             className = {classes.main}
-            spacing = {8}
+            spacing = {break_525 ? break_430 ? 2 : 4 : 8}
             direction = 'row'
             alignItems = 'center'
             justifyContent = 'center'>
@@ -34,8 +38,12 @@ const Navs = () => {
                         variants = {showLabelAnime} 
                         className = {classes.chip} 
                         variant = 'outlined'
+                        size = {break_525 ? 'small' : 'medium'}
                         label = 'Home' />
-                    <HomeOutlined component = {motion.svg} variants = {iconAnime} />
+                    <HomeOutlined  
+                        className = {classes.svgIcon}
+                        component = {motion.svg} 
+                        variants = {iconAnime} />
                 </Stack>
             </CustomLink>
             <CustomLink to = 'my-work'>
@@ -53,9 +61,13 @@ const Navs = () => {
                         component = {motion.div} 
                         variants = {showLabelAnime} 
                         className = {classes.chip} 
+                        size = {break_525 ? 'small' : 'medium'}
                         variant = 'outlined'
                         label = 'My Work' />
-                        <WorkOutlineOutlined component = {motion.svg} variants = {iconAnime} />
+                        <WorkOutlineOutlined 
+                            className = {classes.svgIcon}
+                            component = {motion.svg} 
+                            variants = {iconAnime} />
                 </Stack>
             </CustomLink>
             <CustomLink to = 'my-skills'>
@@ -73,9 +85,13 @@ const Navs = () => {
                         component = {motion.div} 
                         variants = {showLabelAnime} 
                         className = {classes.chip} 
+                        size = {break_525 ? 'small' : 'medium'}
                         variant = 'outlined'
                         label = 'My Skills' />
-                        <EngineeringOutlined component = {motion.svg} variants = {iconAnime} />
+                        <EngineeringOutlined 
+                            className = {classes.svgIcon}
+                            component = {motion.svg} 
+                            variants = {iconAnime} />
                 </Stack>
             </CustomLink>
             <CustomLink to = 'contact-me'>
@@ -93,9 +109,13 @@ const Navs = () => {
                     className = {classes.chip} 
                     component = {motion.div} 
                     variants = {showLabelAnime} 
+                    size = {break_525 ? 'small' : 'medium'}
                     variant = 'outlined'
                     label = 'Contact Me' />
-                    <CallOutlined component = {motion.svg} variants = {iconAnime} />
+                    <CallOutlined 
+                        className = {classes.svgIcon}
+                        component = {motion.svg} 
+                        variants = {iconAnime} />
             </Stack>
             </CustomLink>
             <CustomLink to = 'about-me'>
@@ -113,6 +133,7 @@ const Navs = () => {
                     className = {classes.chip} 
                     component = {motion.div} 
                     variants = {showLabelAnime}
+                    size = {break_525 ? 'small' : 'medium'}
                     variant = 'outlined' 
                     label = 'About Me' />
                     <PersonOutline component = {motion.svg} variants = {iconAnime} />

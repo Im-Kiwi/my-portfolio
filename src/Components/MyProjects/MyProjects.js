@@ -11,7 +11,7 @@ import Project from './Project/Project'
 import { burger, toDo, covid, weather } from '../../Identifiers/identifiers'
 
 const MyProjects = () => {
-    const classes = styles()
+    const classes = styles()  // to access the css defined class names
 
     // creating css breakpoints
     const break_742 = useMediaQuery('(max-width : 725px)')

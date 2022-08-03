@@ -49,3 +49,9 @@ export const SocialButton = styled(IconButton)({
         color : colors.greyish.main
     }
 })
+
+export const styles = makeStyles({
+    container : {
+        height : '100%'
+    }
+})

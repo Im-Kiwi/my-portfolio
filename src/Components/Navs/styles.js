@@ -12,7 +12,7 @@ export const CustomLink = styled(Link)({
 export const styles = makeStyles({
     main : {
         position : 'relative !important',
-        zIndex : 30
+        zIndex : 30,
     }, 
     icon : {
         color : color.orangish.main,
@@ -26,7 +26,25 @@ export const styles = makeStyles({
         position : 'absolute',
         bottom : -27,
         color : color.orangish.main + '!important',
-        borderColor : color.orangish.main + '!important'
+        borderColor : color.orangish.main + '!important',
+    },
+
+    // --------------- responsive -----------------
+    '@media (max-width : 555px)' : {
+        chip : {
+            bottom : -20
+        }
+    },
+    '@media (max-width : 430px)' : {
+        svgIcon : {
+            fontSize : '1.7rem !important',
+        },
+        chip : {
+            width : '74px !important',
+            fontSize : '0.7rem !important',
+            border : 'none !important',
+            bottom : -7
+        }
     }
 }) 
 
