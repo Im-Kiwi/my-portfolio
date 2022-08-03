@@ -14,6 +14,7 @@ const ContactMe = () => {
 
     // creating css breakpoints
     const break_930 = useMediaQuery('(max-width : 930px)')
+    const break_830 = useMediaQuery('(max-height : 830px)')
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -63,102 +64,107 @@ const ContactMe = () => {
     }
 
     return (
-        <Stack
-            alignItems = 'center'
-            justifyContent = 'center'
-            spacing = {1}
-            sx = {{height : '100%'}}
-            // below for transition effect
-            component = {motion.div}
-            initial = {{y : 500, opacity : 0}}
-            animate = {{y : 0, opacity : 1}}
-            exit = {{y : -500, opacity : 0}}
-            transition = {{type : 'tween'}}>
-            <ContactForm>
-                <form ref = {form} onSubmit = {(event) => submitMessage(event)}>
-                    <Stack spacing = {3}>
-                        <TextField
-                            size = 'small'
-                            variant = 'outlined'
-                            type = 'text'
-                            color = 'greyish'
-                            label = 'Your Name'
-                            value = {name}
-                            onChange = {event => changeHandler(event, yourName)}
-                            error = {!Boolean(name.length) && isEmpty}
-                            helperText = {!Boolean(name.length) && isEmpty && 'please mention your name'} />
-                        <TextField
-                            size = 'small'
-                            variant = 'outlined'
-                            type = 'text'
-                            color = 'greyish'
-                            label = 'Your Email address'
-                            value = {email}
-                            onChange = {event => changeHandler(event, yourEmail)}
-                            error = {isEmpty}
-                            helperText = {isEmpty && 'please mention your email address'} />
-                        <TextField
-                            multiline
-                            minRows = {4}
-                            size = 'small'
-                            type = 'text'
-                            color = 'greyish'
-                            label = 'Message'
-                            variant = 'outlined'
-                            value = {message}
-                            onChange = {event => changeHandler(event, yourMessage)}
-                            error = {isEmpty}
-                            helperText = {isEmpty && 'please mention your message'} />
-                        <Box>
-                            <SubmitButton 
-                                disableRipple
-                                variant = 'contained' 
-                                color = 'orangish'
-                                type = 'submit'
-                                size = 'large'>
-                                <strong>Send</strong>
-                            </SubmitButton>
-                            {isError &&
-                                <Alert 
-                                    severity='error'
-                                    sx = {{mt:1}}>
-                                    Unable to send message. Please try again later
-                                </Alert>
-                            }
-                        </Box>
-                    </Stack>
-                </form>
-                <Or variant = 'h5'>OR</Or>
-                <Box
-                    display = 'flex' 
-                    justifyContent = 'space-between'
-                    sx = {{mt:3, width : '100%'}}>
-                    <Stack alignItems = 'center'>
-                        <ContactTitle variant = 'body'>
-                            email me
-                        </ContactTitle>
-                        <Email variant = 'body'>
-                            rahulrana.kiwi@gmail.com
-                        </Email>
-                    </Stack>
-                    <Stack alignItems = 'center'>
-                        <ContactTitle variant = 'body'>
-                            message me
-                        </ContactTitle>
-                        <Box>
-                            <SocialButton
-                                href = 'https://www.facebook.com/dumKiwi'>
-                                <Facebook sx = {{fontSize : '2.7rem'}}/>
-                            </SocialButton>
-                            <SocialButton
-                                href = 'https://www.linkedin.com/in/rahul-rana-36057210b'>
-                                <LinkedIn sx = {{fontSize : '2.7rem'}} />
-                            </SocialButton>
-                        </Box>
-                    </Stack>
-                </Box>
-            </ContactForm>
-        </Stack>
+        <Box display = 'flex'
+            flexDirection = 'column'>
+            <Stack
+                alignItems = 'center'
+                justifyContent = {break_830 ? 'flex-start' : 'center'}
+                spacing = {1}
+                sx = {{height : '100%'}}
+                // below for transition effect
+                component = {motion.div}
+                initial = {{y : 500, opacity : 0}}
+                animate = {{y : 0, opacity : 1}}
+                exit = {{y : -500, opacity : 0}}
+                transition = {{type : 'tween'}}>
+                <ContactForm>
+                    <form ref = {form} onSubmit = {(event) => submitMessage(event)}>
+                        <Stack spacing = {3}>
+                            <TextField
+                                size = 'small'
+                                variant = 'outlined'
+                                type = 'text'
+                                color = 'greyish'
+                                label = 'Your Name'
+                                value = {name}
+                                onChange = {event => changeHandler(event, yourName)}
+                                error = {!Boolean(name.length) && isEmpty}
+                                helperText = {!Boolean(name.length) && isEmpty && 'please mention your name'} />
+                            <TextField
+                                size = 'small'
+                                variant = 'outlined'
+                                type = 'text'
+                                color = 'greyish'
+                                label = 'Your Email address'
+                                value = {email}
+                                onChange = {event => changeHandler(event, yourEmail)}
+                                error = {isEmpty}
+                                helperText = {isEmpty && 'please mention your email address'} />
+                            <TextField
+                                multiline
+                                minRows = {4}
+                                size = 'small'
+                                type = 'text'
+                                color = 'greyish'
+                                label = 'Message'
+                                variant = 'outlined'
+                                value = {message}
+                                onChange = {event => changeHandler(event, yourMessage)}
+                                error = {isEmpty}
+                                helperText = {isEmpty && 'please mention your message'} />
+                            <Box>
+                                <SubmitButton 
+                                    disableRipple
+                                    variant = 'contained' 
+                                    color = 'orangish'
+                                    type = 'submit'
+                                    size = 'large'>
+                                    <strong>Send</strong>
+                                </SubmitButton>
+                                {isError &&
+                                    <Alert 
+                                        severity='error'
+                                        sx = {{mt:1}}>
+                                        Unable to send message. Please try again later
+                                    </Alert>
+                                }
+                            </Box>
+                        </Stack>
+                    </form>
+                    <Or variant = 'h5'>OR</Or>
+                    <Box
+                        display = 'flex' 
+                        flexDirection =  {break_930 ? 'column' : 'row'}
+                        justifyContent = 'space-between'
+                        sx = {{mt:3, width : '100%'}}
+                        gap = {2}>
+                        <Stack alignItems = 'center'>
+                            <ContactTitle variant = 'body'>
+                                email me
+                            </ContactTitle>
+                            <Email variant = 'body'>
+                                rahulrana.kiwi@gmail.com
+                            </Email>
+                        </Stack>
+                        <Stack alignItems = 'center'>
+                            <ContactTitle variant = 'body'>
+                                message me
+                            </ContactTitle>
+                            <Box>
+                                <SocialButton
+                                    href = 'https://www.facebook.com/dumKiwi'>
+                                    <Facebook sx = {{fontSize : '2.7rem'}}/>
+                                </SocialButton>
+                                <SocialButton
+                                    href = 'https://www.linkedin.com/in/rahul-rana-36057210b'>
+                                    <LinkedIn sx = {{fontSize : '2.7rem'}} />
+                                </SocialButton>
+                            </Box>
+                        </Stack>
+                    </Box>
+                </ContactForm>
+            </Stack>
+        </Box>
     )
 }
 

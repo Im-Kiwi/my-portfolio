@@ -6,10 +6,14 @@ const colors = customTheme.palette
 
 export const ContactForm = styled(Box)({
     marginTop : 10,
+    marginBottom : 10,
     padding : 50, 
     width : '60%',
     boxShadow : `0 0 5px 0 ${colors.orangish.main}`,
-    borderRadius : 10
+    borderRadius : 10,
+    '@media (max-width : 700px)' : {
+        width : '100%'
+    }
 })
 
 export const SubmitButton = styled(Button)({
@@ -34,7 +38,7 @@ export const Email = styled(Typography)({
 
 export const Or = styled(Typography)({
     fontFamily : 'Righteous, cursive !important',
-    marginTop : 20, 
+    marginTop : 30, 
     textAlign : 'center',
     color : colors.orangish.main,
 })
