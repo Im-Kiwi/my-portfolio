@@ -67,14 +67,14 @@ const Layout = () =>    {
                 <Stack
                     direction = 'row'
                     justifyContent = 'center'
-                    alignItems = 'center'
+                    alignItems = 'flex-end'
                     sx = {{
                         zIndex : 20,
                         position : 'fixed',
                         bottom : 25,
                         mb:3,
                         width : 550,
-                        height : 55,
+                        height : 128,
                         ml:2,
                         p:1.5}}>
                     <Navs />
