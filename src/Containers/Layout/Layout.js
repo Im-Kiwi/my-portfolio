@@ -2,7 +2,7 @@ import { Box, Container, Stack, Typography } from "@mui/material"
 import { Routes, Route, Navigate } from "react-router-dom"
 import { Copyright } from '@mui/icons-material'
 import { AnimatePresence } from "framer-motion"
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 // ------- importing from other files ----------
 import Home from "../../Components/Home/Home"
@@ -14,6 +14,7 @@ import Navs from "../../Components/Navs/Navs"
 
 const Layout = () =>    {
     const location = useLocation() //consists the navigation information about the page 
+    const navigate = useNavigate() // hook to navigate from one path to another
 
     return (
         <>
@@ -26,7 +27,7 @@ const Layout = () =>    {
                     position : 'relative',
                     background : 'linear-gradient(50deg, rgba(239,50,55,1) 0%, rgba(191,47,53,1) 0%, rgba(115,41,51,1) 5%, rgba(69,37,49,1) 8%, rgba(38,35,48,1) 12%, rgba(25,34,47,1) 15%, rgba(25,34,47,1) 85%, rgba(38,35,48,1) 88%, rgba(69,37,49,1) 92%, rgba(115,41,51,1) 95%, rgba(191,47,53,1) 100%, rgba(239,50,55,1) 100%)'}}>
                 {/* app logo */}
-                <Box 
+                <Box
                     sx = {{
                         width : '100%', 
                         height : 65}}>
@@ -34,13 +35,20 @@ const Layout = () =>    {
                         sx = {{
                             position : 'relative',
                             top : 10,
-                            left : 0,
-                            color : 'orangish.main'}}>
-                        <Typography 
-                            variant = 'h4'
-                            sx = {{fontFamily : "'Rampart One', cursive"}}>
-                            {'<Ranaul />'}
-                        </Typography>
+                            left : 0}}>
+                        <Box 
+                            component = 'button'
+                            onClick = {() => navigate('/')}
+                            sx = {{
+                                background : 'none',
+                                color : 'orangish.main',
+                                border : 'none'}}>
+                            <Typography 
+                                variant = 'h4'
+                                sx = {{fontFamily : "'Rampart One', cursive"}}>
+                                {'<Ranaul />'}
+                            </Typography>
+                        </Box>
                     </Container>
                 </Box>
                 <Container maxWidth = 'xl'
