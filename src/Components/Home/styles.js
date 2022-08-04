@@ -30,9 +30,10 @@ export const styles = makeStyles({
         fontFamily : 'Comfortaa, cursive'
     },
     resumeBtn : {
-        fontFamily : 'Audiowide, cursive',
+        fontFamily : 'Audiowide, cursive !important',
         '&:hover' : {
-            boxShadow : '0px 0px 4px 0 #EF3237'
+            boxShadow : '0px 0px 4px 0 #EF3237',
+            color : colors.orangish.main
         }
     },
     socialIcons : {
