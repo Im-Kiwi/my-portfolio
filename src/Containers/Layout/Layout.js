@@ -39,7 +39,7 @@ const Layout = () =>    {
                         <Typography 
                             variant = 'h4'
                             sx = {{fontFamily : "'Rampart One', cursive"}}>
-                            {'<RR />'}
+                            {'<Ranaul />'}
                         </Typography>
                     </Container>
                 </Box>
