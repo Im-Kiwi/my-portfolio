@@ -52,8 +52,8 @@ const AboutMe = () => {
                             continued my journey of web development.
                         </li>
                         <li style = {{marginBottom : 15}}>
-                            With a part time job in general shop i kept on learning many libraries which can help me to put more professionalism
-                            in developing apps.
+                            With a part time job in general shop i kept on learning many libraries which can help me to build professional
+                            app.
                         </li>
                         <li>
                             Despite of my passion in front end web development, i love to play video games, do exercise, watch tv-series and 
