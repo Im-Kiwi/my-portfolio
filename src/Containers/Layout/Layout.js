@@ -46,7 +46,7 @@ const Layout = () =>    {
                             <Typography 
                                 variant = 'h4'
                                 sx = {{fontFamily : "'Rampart One', cursive"}}>
-                                {'<Ranaul />'}
+                                {'<KiwiLapa />'}
                             </Typography>
                         </Box>
                     </Container>

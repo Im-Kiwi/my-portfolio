@@ -6,7 +6,7 @@ export const projects = [
     {
         id : 'proj_4',
         projectName : burger,
-        sourceCode : 'https://github.com/Im-Kiwi/burger-builder-app',
+        sourceCode : 'https://github.com/kiwilapa/burger-builder-app',
         preview : 'https://clarish-burgers.netlify.app/',
         technologies : ['javascript', 'reactjs', 'css', 'firebase', 'material-ui', 'react-bootstrap', 'bootstrap', 'framer motion'],
         description : [
@@ -21,7 +21,7 @@ export const projects = [
     {
         id : 'proj_3',
         projectName : toDo,
-        sourceCode : 'https://github.com/Im-Kiwi/to-do-app',
+        sourceCode : 'https://github.com/kiwilapa/to-do-app',
         preview : 'https://kiwi-to-do.netlify.app/',
         technologies : ['javascript', 'reactjs', 'css', 'firebase', 'material-ui', 'react-bootstrap', 'bootstrap', 'axios'],
         description : [
@@ -35,7 +35,7 @@ export const projects = [
     {
         id : 'proj_2',
         projectName : covid,
-        sourceCode : 'https://github.com/Im-Kiwi/covid-tracker-app',
+        sourceCode : 'https://github.com/kiwilapa/covid-tracker-app',
         preview : 'https://kiwi-covid-tracker.netlify.app/',
         technologies : ['javascript', 'reactjs', 'css', 'react bootstrap', 'bootstrap', 'chartjs', 'axios'],
         description : [
@@ -48,7 +48,7 @@ export const projects = [
     {
         id : 'proj_1',
         projectName : weather,
-        sourceCode : 'https://github.com/Im-Kiwi/weather-app',
+        sourceCode : 'https://github.com/kiwilapa/weather-app',
         preview : 'https://kiwi-weather.netlify.app/',
         technologies : ['javascript', 'reactjs', 'css', 'react-bootstrap', 'bootstrap', 'axios'],
         description : [

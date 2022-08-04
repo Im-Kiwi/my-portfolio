@@ -96,7 +96,7 @@ const Home = () => {
                             <LinkedIn className = {classes.socialIcons} />
                         </IconButton>
                     </a>
-                    <a href = 'https://github.com/Im-Kiwi'>
+                    <a href = 'https://github.com/kiwilapa'>
                         <IconButton>
                             <GitHub className = {classes.socialIcons} />
                         </IconButton>
