@@ -41,7 +41,7 @@ export const styles = makeStyles({
             fontSize : '1.7rem !important',
         },
         chip : {
-            width : '74px !important',
+            width : '75px !important',
             fontSize : '0.7rem !important',
             border : 'none !important',
             bottom : -7
