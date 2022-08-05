@@ -45,10 +45,13 @@ const Project = ({proj, moreDetailsHandler, showDetails, setShowDetails}) => {
                     flexDirection = 'column'
                     justifyContent = 'center'
                     alignItems = 'center'
-                    position = 'relative'>                                                              
+                    position = 'relative'>          
+                    {/* below are the VIEW and CODE buttons */}
                     <Stack direction = 'row' sx = {{mb:1}}>
                         <CustomButton
                             href = {proj.preview}
+                            rel = 'noreferrer'
+                            target = '_blank'
                             disableRipple 
                             sx = {{mr:1}} 
                             variant = 'contained' 
@@ -62,6 +65,8 @@ const Project = ({proj, moreDetailsHandler, showDetails, setShowDetails}) => {
                         </CustomButton>
                         <CustomButton
                             href = {proj.sourceCode}
+                            rel = 'noreferrer'
+                            target = '_blank'
                             disableRipple 
                             variant = 'contained' 
                             color = 'orangish'>

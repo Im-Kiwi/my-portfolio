@@ -153,11 +153,15 @@ const ContactMe = () => {
                             </ContactTitle>
                             <Box>
                                 <SocialButton
-                                    href = 'https://www.facebook.com/dumKiwi'>
+                                    href = 'https://www.facebook.com/dumKiwi'
+                                    rel = 'noreferrer'
+                                    target = '_blank'>
                                     <Facebook sx = {{fontSize : break_550 ? '2.1rem' : '2.7rem'}}/>
                                 </SocialButton>
                                 <SocialButton
-                                    href = 'https://www.linkedin.com/in/rahul-rana-36057210b'>
+                                    href = 'https://www.linkedin.com/in/rahul-rana-36057210b'
+                                    rel = 'noreferrer'
+                                    target = '_blank'>
                                     <LinkedIn sx = {{fontSize : break_550 ? '2.1rem' : '2.7rem'}} />
                                 </SocialButton>
                             </Box>

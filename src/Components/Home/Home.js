@@ -77,7 +77,9 @@ const Home = () => {
                 </Box>
                 <Box sx = {{mt:2}}>
                     <Button 
-                        href = 'https://drive.google.com/file/d/1uA8Twqja_0F3knbUl3F2C1fgq2WTcKe-/view?usp=sharing'
+                        href = 'https://drive.google.com/file/d/1uA8Twqja_0F3knbUl3F2C1fgq2WTcKe-/view?usp=sharing' 
+                        rel = 'noreferrer'
+                        target = '_blank'
                         className = {classes.resumeBtn}
                         size = {break_400 ? 'small' : 'large'}
                         variant = 'outlined' 
@@ -86,17 +88,26 @@ const Home = () => {
                     </Button>
                 </Box>
                 <Box>
-                    <a href = 'https://www.facebook.com/dumKiwi'>
+                    <a 
+                        href = 'https://www.facebook.com/dumKiwi'
+                        rel = 'noreferrer'
+                        target = '_blank'>
                         <IconButton>
                             <Facebook className = {classes.socialIcons} />
                         </IconButton>
                     </a>
-                    <a href = 'https://www.linkedin.com/in/rahul-rana-36057210b'>
+                    <a 
+                        href = 'https://www.linkedin.com/in/rahul-rana-36057210b'
+                        rel = 'noreferrer'
+                        target = '_blank'>
                         <IconButton>
                             <LinkedIn className = {classes.socialIcons} />
                         </IconButton>
                     </a>
-                    <a href = 'https://github.com/kiwilapa'>
+                    <a 
+                        href = 'https://github.com/kiwilapa'
+                        rel = 'noreferrer'
+                        target = '_blank'>
                         <IconButton>
                             <GitHub className = {classes.socialIcons} />
                         </IconButton>
