@@ -77,7 +77,7 @@ const Home = () => {
                 </Box>
                 <Box sx = {{mt:2}}>
                     <Button 
-                        href = 'https://drive.google.com/file/d/1l71PUCpxBbHYJdv-FB1oTcCfgoRm7giq/view?usp=sharing'
+                        href = 'https://drive.google.com/file/d/1uA8Twqja_0F3knbUl3F2C1fgq2WTcKe-/view?usp=sharing'
                         className = {classes.resumeBtn}
                         size = {break_400 ? 'small' : 'large'}
                         variant = 'outlined' 
