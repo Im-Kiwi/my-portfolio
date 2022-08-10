@@ -44,16 +44,10 @@ const AboutMe = () => {
                             showing interest in web development.
                         </li>
                         <li style = {{marginBottom : 15}}>
-                            After graduation in Computer engineering, i started learning web development using online learning platforms like 
-                            Udacity and Udemy.
+                            I started learning web development using online learning platforms like Udacity, Udemy and of course youtube :).
                         </li>
                         <li style = {{marginBottom : 15}}>
-                            Pandemic really changed everything, during the begining of the lockdown i went back to my home and from there i 
-                            continued my journey of web development.
-                        </li>
-                        <li style = {{marginBottom : 15}}>
-                            With a part time job in general shop i kept on learning many libraries which can help me to build professional
-                            app.
+                            I also learnt many libraries by myself while working on projects which helped me to grow as a professional
                         </li>
                         <li>
                             Despite of my passion in front end web development, i love to play video games, do exercise, watch tv-series and 
