@@ -69,6 +69,7 @@ const ContactMe = () => {
             <Stack
                 alignItems = 'center'
                 justifyContent = {break_830 ? 'flex-start' : 'center'}
+                sx = {{height : 'inherit'}}
                 spacing = {1}
                 // below for transition effect
                 component = {motion.div}
