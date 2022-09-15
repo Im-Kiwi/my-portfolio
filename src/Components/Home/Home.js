@@ -77,7 +77,7 @@ const Home = () => {
                 </Box>
                 <Box sx = {{mt:2}}>
                     <Button 
-                        href = 'https://drive.google.com/file/d/1bne3QEGJH0VWpSEWYjHyhPEWO-vN1pa7/view?usp=sharing' 
+                        href = 'https://drive.google.com/file/d/1HVV2qb8kSwF7FKE9FkwTveFFk_7yNDGq/view?usp=sharing' 
                         rel = 'noreferrer'
                         target = '_blank'
                         className = {classes.resumeBtn}
