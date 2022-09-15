@@ -22,7 +22,7 @@ export const projects = [
         id : 'proj_3',
         projectName : toDo,
         sourceCode : 'https://github.com/kiwilapa/to-do-app',
-        preview : 'https://kiwi-to-do.netlify.app/',
+        preview : 'https://kiwilapa-to-do.netlify.app/',
         technologies : ['javascript', 'reactjs', 'css', 'firebase', 'material-ui', 'react-bootstrap', 'bootstrap', 'axios'],
         description : [
             'This "to do" app is to create multiple tasks by the user for today tomorrow or any day in the future.',
