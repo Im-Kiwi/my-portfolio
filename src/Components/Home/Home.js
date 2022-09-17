@@ -75,18 +75,18 @@ const Home = () => {
                         Very much passionate about learning and solving problems.
                     </Typography>
                 </Box>
-                <Box sx = {{mt:2}}>
-                    <Button 
-                        href = 'https://drive.google.com/file/d/1KxKUykJBK-B59bNREZUaKk0SIi0gIYFJ/view?usp=sharing' 
-                        rel = 'noreferrer'
-                        target = '_blank'
-                        className = {classes.resumeBtn}
-                        size = {break_400 ? 'small' : 'large'}
-                        variant = 'outlined' 
-                        color = 'orangish'>
-                        <strong>Resume</strong>
-                    </Button>
-                </Box>
+//                 <Box sx = {{mt:2}}>
+//                     <Button 
+//                         href = 'https://drive.google.com/file/d/1KxKUykJBK-B59bNREZUaKk0SIi0gIYFJ/view?usp=sharing' 
+//                         rel = 'noreferrer'
+//                         target = '_blank'
+//                         className = {classes.resumeBtn}
+//                         size = {break_400 ? 'small' : 'large'}
+//                         variant = 'outlined' 
+//                         color = 'orangish'>
+//                         <strong>Resume</strong>
+//                     </Button>
+//                 </Box>
                 <Box>
                     <a 
                         href = 'https://www.facebook.com/dumKiwi'
