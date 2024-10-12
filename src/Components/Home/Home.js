@@ -78,14 +78,12 @@ const Home = () => {
               </Typography>
             </Stack>
             <Typography variant="body" className={classes.professionText}>
-              - a front end web developer
+              - a MERN Stack developer
             </Typography>
           </Stack>
           <Divider />
           <Typography variant="body" className={classes.summary}>
-            I love to develop single page web applications with the help of
-            amazing libraries. <br />
-            Very much passionate about learning and solving problems.
+            Passionate MERN Stack Developer with a Focus on Seamless Digital Experiences
           </Typography>
         </Box>
         {/* <Box sx={{ mt: 2 }}>
